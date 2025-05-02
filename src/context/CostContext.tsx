@@ -52,59 +52,33 @@ const initialProfessionals: Professional[] = [
   { id: "prof-9", type: "Equipe de Saúde Bucal (Cirurgião-dentista e Auxiliar)", quantity: 1, salary: 10000, workHours: 40 },
 ];
 
+// Updated initialTrainings with default values as requested
 const initialTrainings: Training[] = [
-  { id: "train-1", name: "Capacitação e Treinamento Geral", description: "Programas de educação continuada", cost: 8000, participants: 1, hours: 40 },
-  { id: "train-2", name: "Treinamento Equipe", description: "Capacitação específica para equipe básica", cost: 1000, participants: 15, hours: 20 },
-  { id: "train-3", name: "Treinamento Equipe Multiprofissional", description: "Treinamento especializado", cost: 600, participants: 4, hours: 16 },
-  { id: "train-4", name: "Treinamento ACS", description: "Capacitação dos Agentes Comunitários de Saúde", cost: 1000, participants: 11, hours: 24 },
-  { id: "train-5", name: "Treinamento Posto de Saúde", description: "Capacitação geral para funcionamento da unidade", cost: 300, participants: 5, hours: 8 },
+  { id: "train-1", name: "CAPACITAÇÃO", description: "", cost: 300, participants: 1, hours: 30 }
 ];
 
 const initialSystemsConsulting: SystemConsulting[] = [
-  // Sistemas
-  { id: "sys-1", name: "Prontuário eletrônico", description: "Sistema para 17 unidades", cost: 10200, category: "system" },
-  { id: "sys-2", name: "Sistema de Gestão de Dados", description: "Sistema para 17 unidades", cost: 11900, category: "system" },
-  { id: "sys-3", name: "Ponto eletrônico facial", description: "Sistema para 25 unidades", cost: 10000, category: "system" },
-  { id: "sys-4", name: "Sistema PEC (Prontuário Eletrônico do Cidadão)", description: "Integrado ao e-SUS AB", cost: 2500, category: "system" },
-  { id: "sys-5", name: "Sistema de Inteligência de BI", description: "Ferramentas analíticas", cost: 3000, category: "system" },
-  { id: "sys-6", name: "Servidor em Nuvem", description: "Infraestrutura de dados", cost: 1200, category: "system" },
-  { id: "sys-7", name: "Ponto Eletrônico via Reconhecimento Facial", description: "Sistema de controle de presença", cost: 500, category: "system" },
-  { id: "sys-8", name: "Sistema de Georreferenciamento", description: "Monitoramento territorial", cost: 1200, category: "system" },
-  { id: "sys-9", name: "Sistema de Controle de Dispositivos Móveis", description: "Gestão de dispositivos", cost: 900, category: "system" },
-  { id: "sys-10", name: "Sistema de Telemedicina Integrado", description: "Plataforma para consultas virtuais", cost: 2800, category: "system" },
-  { id: "sys-11", name: "Sistema de Monitoramento de Indicadores", description: "Acompanhamento em tempo real", cost: 1800, category: "system" },
-  { id: "sys-12", name: "Sistema de Gestão de Estoque e Medicamentos", description: "Controle de insumos", cost: 1500, category: "system" },
-  { id: "sys-13", name: "Sistema de Agendamento e Regulação", description: "Otimização de fluxo", cost: 1200, category: "system" },
-  { id: "sys-14", name: "Sistema de Comunicação Interna e Externa", description: "Comunicação com usuários", cost: 1000, category: "system" },
-  { id: "sys-15", name: "Sistema de Gestão de Protocolos Clínicos", description: "Diretrizes terapêuticas", cost: 1200, category: "system" },
-  { id: "sys-16", name: "Sistema de Satisfação do Usuário", description: "Monitoramento de qualidade", cost: 1400, category: "system" },
-  { id: "sys-17", name: "Sistema de Gestão de Vigilância em Saúde", description: "Ações integradas", cost: 1800, category: "system" },
-  { id: "sys-18", name: "Suporte Técnico Online e Presencial", description: "Atendimento técnico", cost: 1800, category: "system" },
-  // Consultorias
-  { id: "cons-1", name: "Consultoria", description: "Consultoria geral para 11 unidades", cost: 13200, category: "consulting" },
-  { id: "cons-2", name: "Consultoria para Gestão da Atenção Básica", description: "Assessoria especializada", cost: 3800, category: "consulting" },
-  { id: "cons-3", name: "Consultoria para Profissionais de Saúde", description: "Suporte técnico", cost: 2200, category: "consulting" },
-  { id: "cons-4", name: "Relatórios Mensais de Atividades", description: "Geração de análises", cost: 2200, category: "consulting" },
-  { id: "cons-5", name: "Consultoria para Captação de Recursos", description: "Otimização de financiamentos", cost: 3800, category: "consulting" },
-  { id: "cons-6", name: "Consultoria para CNES", description: "Suporte para regularização", cost: 2200, category: "consulting" },
-  { id: "cons-7", name: "Consultoria para Integração de Sistemas", description: "Interoperabilidade", cost: 4200, category: "consulting" },
+  // Systems
+  { id: "sys-1", name: "SISTEMAS", description: "", cost: 14000, category: "system" },
+  // Consulting
+  { id: "cons-1", name: "CONSULTORIA", description: "", cost: 10000, category: "consulting" },
 ];
 
 const initialFacilityCosts: FacilityCosts = {
   infrastructure: [
-    { id: "infra-1", name: "Aluguel", description: "Custo mensal de aluguel", cost: 15000 },
-    { id: "infra-2", name: "Utilidades", description: "Custo de água, energia e internet", cost: 8000 },
-    { id: "infra-3", name: "Manutenção", description: "Custo de manutenção predial", cost: 5000 },
+    { id: "infra-1", name: "Aluguel/Imóvel", description: "Custo mensal de aluguel", cost: 0 },
+    { id: "infra-2", name: "Utilidades (água, luz, etc.)", description: "Custo de água, energia e internet", cost: 0 },
+    { id: "infra-3", name: "Manutenção", description: "Custo de manutenção predial", cost: 0 },
   ],
   equipment: [
-    { id: "equip-1", name: "Equipamentos médicos", description: "Custo de equipamentos médicos", cost: 25000 },
-    { id: "equip-2", name: "Equipamentos de escritório", description: "Custo de equipamentos de escritório", cost: 12000 },
+    { id: "equip-1", name: "Equipamentos Médicos", description: "Custo de equipamentos médicos", cost: 0 },
+    { id: "equip-2", name: "Material de Escritório", description: "Custo de equipamentos de escritório", cost: 0 },
     { id: "equip-3", name: "Tecnologia", description: "Custo de equipamentos tecnológicos", cost: 0 },
   ],
   operational: [
-    { id: "oper-1", name: "Suprimentos", description: "Custo de suprimentos operacionais", cost: 20000 },
-    { id: "oper-2", name: "Seguro", description: "Custo de seguro", cost: 5000 },
-    { id: "oper-3", name: "Outros", description: "Outros custos operacionais", cost: 150 },
+    { id: "oper-1", name: "Suprimentos", description: "Custo de suprimentos operacionais", cost: 0 },
+    { id: "oper-2", name: "Seguros", description: "Custo de seguro", cost: 0 },
+    { id: "oper-3", name: "Outros Custos", description: "Outros custos operacionais", cost: 0 },
   ],
 };
 
@@ -113,6 +87,7 @@ const calculateProfessionalsCost = (professionals: Professional[]) => {
   return professionals.reduce((total, prof) => total + (prof.quantity * prof.salary), 0);
 };
 
+// Updated calculation for trainings - now uses cost (hourly rate) * hours
 const calculateTrainingsCost = (trainings: Training[]) => {
   return trainings.reduce((total, training) => total + (training.cost * training.hours), 0);
 };
@@ -340,7 +315,7 @@ export const CostProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   );
 
   const [workPlanTotalMensal, setWorkPlanTotalMensal] = useState<number>(
-    getSavedData('workPlanTotalMensal', 575950)
+    getSavedData('workPlanTotalMensal', 65108)  // Updated with the value you provided
   );
   
   const [workPlanTotalAnual, setWorkPlanTotalAnual] = useState<number>(

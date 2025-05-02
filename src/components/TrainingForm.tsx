@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -24,11 +25,11 @@ const TrainingForm = ({ trainings, setTrainings }: TrainingFormProps) => {
   const addTraining = () => {
     const newTraining: Training = {
       id: `training-${Date.now()}`,
-      name: '',
+      name: 'CAPACITAÇÃO',
       description: '',
-      cost: 0,
+      cost: 300, // Default hourly rate of 300
       participants: 1,
-      hours: 8,
+      hours: 30, // Default hours of 30
     };
     setTrainings([...trainings, newTraining]);
   };
@@ -45,6 +46,7 @@ const TrainingForm = ({ trainings, setTrainings }: TrainingFormProps) => {
     setTrainings(trainings.filter((training) => training.id !== id));
   };
 
+  // New calculation method - cost is now hourly rate
   const calculateTotalCost = () => {
     return trainings.reduce((total, training) => {
       return total + (training.cost * training.hours);
@@ -82,7 +84,7 @@ const TrainingForm = ({ trainings, setTrainings }: TrainingFormProps) => {
                   </div>
                   
                   <div>
-                    <Label htmlFor={`cost-${training.id}`}>Custo por Participante (R$)</Label>
+                    <Label htmlFor={`cost-${training.id}`}>Valor da Hora/Aula (R$)</Label>
                     <Input
                       id={`cost-${training.id}`}
                       type="number"
