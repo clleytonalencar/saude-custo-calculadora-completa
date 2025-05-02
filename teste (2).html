@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto de Gestão da Saúde Municipal de Ibotirama-BA</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .page-break {
+            page-break-after: always;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        .header-box {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .section-title {
+            border-left: 5px solid #3b82f6;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #e5e7eb;
+        }
+        th {
+            background-color: #f3f4f6;
+        }
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.25rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: #3b82f6;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 1.25rem;
+            width: 0.125rem;
+            height: calc(100% + 1rem);
+            background-color: #e5e7eb;
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background-color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Capa -->
+        <div class="header-box mb-10 text-center">
+            <h1 class="text-4xl font-bold mb-4">PROJETO DE GESTÃO DE SAÚDE</h1>
+            <h2 class="text-2xl font-medium mb-6">MUNICÍPIO DE IBOTIRAMA - BAHIA</h2>
+            <p class="text-xl">2025-2028</p>
+        </div>
+
+        <!-- Sumário Executivo -->
+        <div class="section">
+            <h2 class="section-title text-2xl">SUMÁRIO EXECUTIVO</h2>
+            <div class="card bg-white">
+                <p class="mb-4">
+                    Este documento apresenta um projeto completo para gestão da saúde pública do município de Ibotirama, 
+                    localizado no estado da Bahia, com população estimada de 26.309 habitantes (Censo 2022). 
+                    O projeto foi desenvolvido com base em análise situacional do município e visa estruturar 
+                    um sistema de saúde eficiente, humanizado e resolutivo, alinhado aos princípios do SUS.
+                </p>
+                <p>
+                    O plano contempla a reestruturação da Secretaria Municipal de Saúde, ampliação e qualificação da 
+                    Atenção Primária, fortalecimento da assistência hospitalar e especializada, desenvolvimento de 
+                    programas prioritários e aprimoramento da gestão, com estabelecimento de metas e indicadores 
+                    para monitoramento contínuo dos resultados.
+                </p>
+            </div>
+        </div>
+        
+        <!-- 1. Diagnóstico Situacional -->
+        <div class="section">
+            <h2 class="section-title text-2xl">1. DIAGNÓSTICO SITUACIONAL</h2>
+            
+            <h3 class="text-xl font-semibold mb-2 text-blue-700">1.1 Caracterização do Município</h3>
+            <div class="card">
+                <ul class="list-disc pl-5 mb-4">
+                    <li><strong>População:</strong> 26.309 habitantes (IBGE, 2022)</li>
+                    <li><strong>Área territorial:</strong> 1.740,087 km²</li>
+                    <li><strong>Densidade demográfica:</strong> 15,12 hab/km²</li>
+                    <li><strong>Localização:</strong> Margem direita do rio São Francisco, cortada pela BR-242 (liga Salvador a Brasília)</li>
+                    <li><strong>Fundação:</strong> 14 de agosto de 1958</li>
+                    <li><strong>PIB:</strong> R$ 415,6 milhões (2021), com 50,1% do valor adicionado vindo do setor de serviços</li>
+                    <li><strong>PIB per capita:</strong> R$ 15.348,75 (2021)</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">1.2 Perfil Epidemiológico</h3>
+            <div class="card">
+                <p class="mb-4">A análise do perfil epidemiológico de Ibotirama revela:</p>
+                <ul class="list-disc pl-5 mb-4">
+                    <li>Taxa de mortalidade infantil de 26,88 por mil nascidos vivos, acima da média nacional</li>
+                    <li>Prevalência de doenças crônicas não transmissíveis (hipertensão, diabetes)</li>
+                    <li>Incidência significativa de arboviroses (dengue, zika, chikungunya)</li>
+                    <li>Demanda por atendimentos em saúde mental</li>
+                    <li>Necessidade de fortalecimento das ações de saúde materno-infantil</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">1.3 Estrutura Atual de Saúde</h3>
+            <div class="card">
+                <h4 class="font-semibold text-lg mb-2">Rede de Saúde Municipal:</h4>
+                <ul class="list-disc pl-5 mb-4">
+                    <li>Hospital Regional do Velho Chico (HRVC) - referência regional</li>
+                    <li>Unidades Básicas de Saúde (cobertura estimada de 69,50% do território)</li>
+                    <li>Centro de Atenção Psicossocial (CAPS I)</li>
+                    <li>Serviços de apoio diagnóstico com limitações de oferta</li>
+                </ul>
+                
+                <h4 class="font-semibold text-lg mb-2">Recursos Humanos:</h4>
+                <ul class="list-disc pl-5 mb-4">
+                    <li>Escassez de profissionais especializados</li>
+                    <li>Alta rotatividade de médicos na Atenção Primária</li>
+                    <li>Necessidade de capacitação contínua das equipes</li>
+                </ul>
+                
+                <h4 class="font-semibold text-lg mb-2">Gestão:</h4>
+                <ul class="list-disc pl-5">
+                    <li>Fundo Municipal de Saúde constituído (CNPJ: 10556184000124)</li>
+                    <li>Conselho Municipal de Saúde ativo</li>
+                    <li>Fragilidades nos processos de planejamento e monitoramento</li>
+                    <li>Informatização parcial dos serviços de saúde</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">1.4 Análise SWOT</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th class="w-1/2">Forças</th>
+                            <th class="w-1/2">Fraquezas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="align-top">
+                                <ul class="list-disc pl-5">
+                                    <li>Hospital Regional como referência macrorregional</li>
+                                    <li>Conselho Municipal de Saúde atuante</li>
+                                    <li>Localização estratégica do município</li>
+                                    <li>Existência de serviço de saúde mental (CAPS)</li>
+                                </ul>
+                            </td>
+                            <td class="align-top">
+                                <ul class="list-disc pl-5">
+                                    <li>Cobertura insuficiente da Atenção Primária (69,5%)</li>
+                                    <li>Alta taxa de mortalidade infantil (26,88)</li>
+                                    <li>Escassez de profissionais especializados</li>
+                                    <li>Sistemas de informação fragmentados</li>
+                                    <li>Infraestrutura inadequada em algumas unidades</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th>Oportunidades</th>
+                            <th>Ameaças</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="align-top">
+                                <ul class="list-disc pl-5">
+                                    <li>Programas federais de financiamento para APS</li>
+                                    <li>Ampliação do Hospital Regional em andamento</li>
+                                    <li>Possibilidade de consórcios intermunicipais</li>
+                                    <li>Parcerias com universidades para formação</li>
+                                    <li>Digitalização dos serviços de saúde</li>
+                                </ul>
+                            </td>
+                            <td class="align-top">
+                                <ul class="list-disc pl-5">
+                                    <li>Restrições orçamentárias</li>
+                                    <li>Dificuldade na fixação de profissionais</li>
+                                    <li>Aumento da demanda por serviços especializados</li>
+                                    <li>Emergências sanitárias/epidemiológicas</li>
+                                    <li>Influências políticas na gestão da saúde</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- 2. Objetivos Estratégicos -->
+        <div class="section mt-8">
+            <h2 class="section-title text-2xl">2. OBJETIVOS ESTRATÉGICOS</h2>
+            
+            <h3 class="text-xl font-semibold mb-2 text-blue-700">2.1 Missão, Visão e Valores</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div class="card bg-blue-50">
+                    <h4 class="font-bold text-center mb-2">Missão</h4>
+                    <p class="text-center">Garantir à população de Ibotirama acesso a serviços de saúde de qualidade, integrais e humanizados, por meio de uma gestão eficiente e participativa do SUS.</p>
+                </div>
+                <div class="card bg-blue-50">
+                    <h4 class="font-bold text-center mb-2">Visão</h4>
+                    <p class="text-center">Ser referência regional em gestão de saúde pública, promovendo qualidade de vida e desenvolvimento social sustentável para a população de Ibotirama.</p>
+                </div>
+                <div class="card bg-blue-50">
+                    <h4 class="font-bold text-center mb-2">Valores</h4>
+                    <ul class="list-disc pl-5">
+                        <li>Humanização</li>
+                        <li>Equidade</li>
+                        <li>Transparência</li>
+                        <li>Eficiência</li>
+                        <li>Integralidade</li>
+                        <li>Participação social</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700">2.2 Objetivos Gerais</h3>
+            <div class="card">
+                <ol class="list-decimal pl-5">
+                    <li class="mb-2">Fortalecer a Atenção Primária à Saúde como ordenadora da rede de atenção à saúde municipal</li>
+                    <li class="mb-2">Qualificar a assistência especializada e hospitalar para garantir integralidade do cuidado</li>
+                    <li class="mb-2">Modernizar a gestão da secretaria municipal de saúde com enfoque em resultados</li>
+                    <li class="mb-2">Aprimorar a vigilância em saúde e o controle de doenças e agravos</li>
+                    <li class="mb-2">Fortalecer a participação social e os mecanismos de transparência na gestão</li>
+                    <li>Garantir sustentabilidade financeira das ações e serviços de saúde do município</li>
+                </ol>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">2.3 Objetivos Específicos</h3>
+            <div class="card">
+                <ol class="list-decimal pl-5">
+                    <li class="mb-2">Ampliar a cobertura da Estratégia Saúde da Família para 90% do território municipal</li>
+                    <li class="mb-2">Reduzir a taxa de mortalidade infantil para menos de 15 por mil nascidos vivos</li>
+                    <li class="mb-2">Implementar sistema de regulação municipal integrado à central regional</li>
+                    <li class="mb-2">Informatizar 100% das unidades de saúde do município</li>
+                    <li class="mb-2">Implementar programa municipal de educação permanente para profissionais de saúde</li>
+                    <li class="mb-2">Estruturar rede de atenção às urgências e emergências municipal</li>
+                    <li class="mb-2">Fortalecer os programas de saúde materno-infantil, saúde mental e controle de doenças crônicas</li>
+                    <li class="mb-2">Implementar gestão por resultados com indicadores e metas pactuados</li>
+                    <li>Aprimorar os mecanismos de controle, avaliação e auditoria do SUS municipal</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- 3. Estrutura Organizacional -->
+        <div class="section mt-8">
+            <h2 class="section-title text-2xl">3. ESTRUTURA ORGANIZACIONAL</h2>
+            
+            <h3 class="text-xl font-semibold mb-2 text-blue-700">3.1 Organograma da Secretaria Municipal de Saúde</h3>
+            <div class="card bg-white p-6 mb-6">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Organograma -->
+                    <div class="relative">
+                        <!-- Nível 1 -->
+                        <div class="bg-blue-700 text-white p-3 rounded-lg text-center mb-4 relative mx-auto w-64">
+                            <p class="font-bold">Secretário(a) Municipal de Saúde</p>
+                        </div>
+                        
+                        <!-- Linha vertical de conexão -->
+                        <div class="w-0.5 h-8 bg-gray-400 absolute left-1/2 transform -translate-x-1/2"></div>
+                        
+                        <!-- Nível 2 -->
+                        <div class="grid grid-cols-3 gap-4 mt-8 justify-items-center">
+                            <!-- Conselho Municipal de Saúde -->
+                            <div class="bg-blue-100 p-3 rounded-lg text-center w-56">
+                                <p class="font-medium">Conselho Municipal de Saúde</p>
+                                <p class="text-xs">(Órgão Colegiado)</p>
+                            </div>
+                            
+                            <!-- Gabinete -->
+                            <div class="bg-blue-500 text-white p-3 rounded-lg text-center w-56">
+                                <p class="font-medium">Gabinete do(a) Secretário(a)</p>
+                                <p class="text-xs">Assessoria Técnica e Jurídica</p>
+                            </div>
+                            
+                            <!-- Ouvidoria -->
+                            <div class="bg-blue-100 p-3 rounded-lg text-center w-56">
+                                <p class="font-medium">Ouvidoria</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Linha vertical de conexão -->
+                        <div class="w-0.5 h-8 bg-gray-400 absolute left-1/2 transform -translate-x-1/2 top-32"></div>
+                        
+                        <!-- Nível 3 - Diretorias/Superintendências -->
+                        <div class="grid grid-cols-4 gap-4 mt-8 justify-items-center">
+                            <div class="bg-blue-600 text-white p-3 rounded-lg text-center w-48">
+                                <p class="font-medium">Diretoria de Atenção à Saúde</p>
+                            </div>
+                            <div class="bg-blue-600 text-white p-3 rounded-lg text-center w-48">
+                                <p class="font-medium">Diretoria de Vigilância em Saúde</p>
+                            </div>
+                            <div class="bg-blue-600 text-white p-3 rounded-lg text-center w-48">
+                                <p class="font-medium">Diretoria de Gestão e Planejamento</p>
+                            </div>
+                            <div class="bg-blue-600 text-white p-3 rounded-lg text-center w-48">
+                                <p class="font-medium">Diretoria Administrativa e Financeira</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Nível 4 - Coordenações -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                            <!-- Coluna 1 - Diretoria de Atenção à Saúde -->
+                            <div>
+                                <div class="bg-blue-200 p-2 rounded-lg text-center mb-2 text-sm">
+                                    <p>Coordenação de Atenção Básica</p>
+                                </div>
+                                <div class="bg-blue-200 p-2 rounded-lg text-center mb-2 text-sm">
+                                    <p>Coordenação de Atenção Especializada</p>
+                                </div>
+                                <div class="bg-blue-200 p-2 rounded-lg text-center mb-2 text-sm">
+                                    <p>Coordenação de Saúde Bucal</p>
+                                </div>
+                                <div class="bg-blue-200 p-2 rounded-lg text-center text-sm">
+                                    <p>Coordenação de Assistência Farmacêutica</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Coluna 2 - Diretoria de Vigilância em Saúde -->
+                            <div>
+                                <div class="bg-blue-200 p-2 rounded-lg text-center mb-2 text-sm">
+                                    <p>Coordenação de Vigilância Epidemiológica</p>
+                                </div>
+                                <div class="bg-blue-200 p-2 rounded-lg text-center mb-2 text-sm">
+                                    <p>Coordenação de Vigilância Sanitária</p>
+                                </div>
+                                <div class="bg-blue-200 p-2 rounded-lg text-center mb-2 text-sm">
+                                    <p>Coordenação de Vigilância Ambiental</p>
+                                </div>
+                                <div class="bg-blue-200 p-2 rounded-lg text-center text-sm">
+                                    <p>Coordenação de Controle de Endemias</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Coluna 3 - Diretoria de Gestão e Planejamento -->
+                            <div>
+                                <div class="bg-blue-200 p-2 rounded-lg text-center mb-2 text-sm">
+                                    <p>Coordenação de Planejamento e Projetos</p>
+                                </div>
+                                <div class="bg-blue-200 p-2 rounded-lg text-center mb-2 text-sm">
+                                    <p>Coordenação de Regulação</p>
+                                </div>
+                                <div class="bg-blue-200 p-2 rounded-lg text-center mb-2 text-sm">
+                                    <p>Coordenação de Sistemas de Informação</p>
+                                </div>
+                                <div class="bg-blue-200 p-2 rounded-lg text-center text-sm">
+                                    <p>Coordenação de Avaliação e Auditoria</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Coluna 4 - Diretoria Administrativa e Financeira -->
+                            <div>
+                                <div class="bg-blue-200 p-2 rounded-lg text-center mb-2 text-sm">
+                                    <p>Coordenação de Gestão de Pessoas</p>
+                                </div>
+                                <div class="bg-blue-200 p-2 rounded-lg text-center mb-2 text-sm">
+                                    <p>Coordenação de Finanças e Contabilidade</p>
+                                </div>
+                                <div class="bg-blue-200 p-2 rounded-lg text-center mb-2 text-sm">
+                                    <p>Coordenação de Compras e Licitações</p>
+                                </div>
+                                <div class="bg-blue-200 p-2 rounded-lg text-center text-sm">
+                                    <p>Coordenação de Infraestrutura e Logística</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">3.2 Descrição dos Cargos e Atribuições</h3>
+            <div class="card">
+                <div class="mb-4">
+                    <h4 class="font-bold">Secretário(a) Municipal de Saúde</h4>
+                    <p class="pl-4 mb-2">Responsável pela gestão do Sistema Único de Saúde no âmbito municipal, definição de políticas públicas de saúde, representação institucional e articulação intersetorial.</p>
+                </div>
+                
+                <div class="mb-4">
+                    <h4 class="font-bold">Diretoria de Atenção à Saúde</h4>
+                    <p class="pl-4 mb-2">Responsável pelo planejamento, organização e coordenação das ações e serviços de saúde na atenção primária, especializada e hospitalar, garantindo a integralidade do cuidado.</p>
+                </div>
+                
+                <div class="mb-4">
+                    <h4 class="font-bold">Diretoria de Vigilância em Saúde</h4>
+                    <p class="pl-4 mb-2">Responsável pelas ações de prevenção e controle de doenças e agravos à saúde, incluindo vigilância epidemiológica, sanitária, ambiental e de saúde do trabalhador.</p>
+                </div>
+                
+                <div class="mb-4">
+                    <h4 class="font-bold">Diretoria de Gestão e Planejamento</h4>
+                    <p class="pl-4 mb-2">Responsável pelo planejamento estratégico, monitoramento e avaliação das ações de saúde, regulação de serviços, sistemas de informação e controle interno.</p>
+                </div>
+                
+                <div class="mb-4">
+                    <h4 class="font-bold">Diretoria Administrativa e Financeira</h4>
+                    <p class="pl-4">Responsável pela gestão orçamentária e financeira, compras e licitações, gestão de pessoas, infraestrutura e logística dos serviços de saúde do município.</p>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">3.3 Quadro de Pessoal</h3>
+            <div class="card overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th>Categoria</th>
+                            <th>Cargos</th>
+                            <th>Quantitativo</th>
+                            <th>Forma de Provimento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Direção Superior</td>
+                            <td>Secretário Municipal de Saúde</td>
+                            <td class="text-center">1</td>
+                            <td>Nomeação pelo Prefeito</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Assessoramento</td>
+                            <td>Assessores Técnicos</td>
+                            <td class="text-center">3</td>
+                            <td>Cargo em comissão</td>
+                        </tr>
+                        <tr>
+                            <td>Direção Intermediária</td>
+                            <td>Diretores</td>
+                            <td class="text-center">4</td>
+                            <td>Cargo em comissão</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Coordenação</td>
+                            <td>Coordenadores</td>
+                            <td class="text-center">16</td>
+                            <td>Função gratificada</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="7">Técnico-Operacional</td>
+                            <td>Médicos</td>
+                            <td class="text-center">20</td>
+                            <td>Efetivo/Contrato</td>
+                        </tr>
+                        <tr>
+                            <td>Enfermeiros</td>
+                            <td class="text-center">25</td>
+                            <td>Efetivo/Contrato</td>
+                        </tr>
+                        <tr>
+                            <td>Dentistas</td>
+                            <td class="text-center">12</td>
+                            <td>Efetivo/Contrato</td>
+                        </tr>
+                        <tr>
+                            <td>Farmacêuticos</td>
+                            <td class="text-center">5</td>
+                            <td>Efetivo/Contrato</td>
+                        </tr>
+                        <tr>
+                            <td>Técnicos de Enfermagem</td>
+                            <td class="text-center">40</td>
+                            <td>Efetivo/Contrato</td>
+                        </tr>
+                        <tr>
+                            <td>Agentes Comunitários de Saúde</td>
+                            <td class="text-center">60</td>
+                            <td>Efetivo</td>
+                        </tr>
+                        <tr>
+                            <td>Agentes de Endemias</td>
+                            <td class="text-center">20</td>
+                            <td>Efetivo</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Administrativo</td>
+                            <td>Auxiliares Administrativos</td>
+                            <td class="text-center">30</td>
+                            <td>Efetivo/Contrato</td>
+                        </tr>
+                        <tr>
+                            <td>Apoio</td>
+                            <td>Motoristas, Auxiliares de Serviços Gerais, etc.</td>
+                            <td class="text-center">25</td>
+                            <td>Efetivo/Contrato</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">3.4 Detalhamento de Profissionais por Categoria</h3>
+            <div class="card overflow-x-auto">
+                <p class="mb-4">
+                    A tabela abaixo apresenta o detalhamento completo de todas as categorias profissionais 
+                    atuantes no sistema de saúde municipal de Ibotirama, permitindo uma visão clara 
+                    da distribuição de recursos humanos e sua alocação:
+                </p>
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th class="w-2/3">Categoria Profissional</th>
+                            <th class="w-1/3">Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Profissionais de Medicina -->
+                        <tr class="bg-gray-50 font-semibold">
+                            <td colspan="2">Profissionais de Medicina</td>
+                        </tr>
+                        <tr>
+                            <td>MÉDICO CLÍNICO</td>
+                            <td class="text-center">19</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>MÉDICO DA ESTRATÉGIA DE SAÚDE DA FAMÍLIA</td>
+                            <td class="text-center">7</td>
+                        </tr>
+                        <tr>
+                            <td>MÉDICO ORTOPEDISTA E TRAUMATOLOGISTA</td>
+                            <td class="text-center">3</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>MÉDICO CARDIOLOGISTA</td>
+                            <td class="text-center">3</td>
+                        </tr>
+                        <tr>
+                            <td>MÉDICO CIRURGIÃO GERAL</td>
+                            <td class="text-center">4</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>MÉDICO GINECOLOGISTA E OBSTETRA</td>
+                            <td class="text-center">3</td>
+                        </tr>
+                        <tr>
+                            <td>MÉDICO EM RADIOLOGIA E DIAGNÓSTICO POR IMAGEM</td>
+                            <td class="text-center">2</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>MÉDICO ENDOCRINOLOGISTA E METABOLOGISTA</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr>
+                            <td>MÉDICO PEDIATRA</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>MÉDICO DERMATOLOGISTA</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr>
+                            <td>MÉDICO GASTROENTEROLOGISTA</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>MÉDICO EM ENDOSCOPIA</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr>
+                            <td>MÉDICO DO TRABALHO</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>MÉDICO REUMATOLOGISTA</td>
+                            <td class="text-center">2</td>
+                        </tr>
+                        <tr>
+                            <td>MÉDICO NEUROLOGISTA</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>MÉDICO PSIQUIATRA</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr>
+                            <td>MÉDICO OTORRINOLARINGOLOGISTA</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>MÉDICO CITOPATOLOGISTA</td>
+                            <td class="text-center">1</td>
+                        </tr>
+
+                        <!-- Profissionais de Enfermagem -->
+                        <tr class="bg-blue-50 font-semibold">
+                            <td colspan="2">Profissionais de Enfermagem</td>
+                        </tr>
+                        <tr>
+                            <td>ENFERMEIRO</td>
+                            <td class="text-center">17</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>TÉCNICO DE ENFERMAGEM</td>
+                            <td class="text-center">45</td>
+                        </tr>
+                        <tr>
+                            <td>TÉCNICO DE ENFERMAGEM DA ESTRATÉGIA DE SAÚDE DA FAMÍLIA</td>
+                            <td class="text-center">14</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>ENFERMEIRO OBSTÉTRICO</td>
+                            <td class="text-center">3</td>
+                        </tr>
+                        <tr>
+                            <td>AUXILIAR DE ENFERMAGEM</td>
+                            <td class="text-center">1</td>
+                        </tr>
+
+                        <!-- Profissionais de Saúde Bucal -->
+                        <tr class="bg-blue-50 font-semibold">
+                            <td colspan="2">Profissionais de Saúde Bucal</td>
+                        </tr>
+                        <tr>
+                            <td>CIRURGIÃO-DENTISTA DA ESTRATÉGIA DE SAÚDE DA FAMÍLIA</td>
+                            <td class="text-center">7</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>AUXILIAR EM SAÚDE BUCAL DA ESTRATÉGIA DE SAÚDE DA FAMÍLIA</td>
+                            <td class="text-center">4</td>
+                        </tr>
+                        <tr>
+                            <td>CIRURGIÃO DENTISTA - ENDODONTISTA</td>
+                            <td class="text-center">1</td>
+                        </tr>
+
+                        <!-- Profissionais de Diagnóstico e Terapia -->
+                        <tr class="bg-blue-50 font-semibold">
+                            <td colspan="2">Profissionais de Diagnóstico e Terapia</td>
+                        </tr>
+                        <tr>
+                            <td>FISIOTERAPEUTA GERAL</td>
+                            <td class="text-center">8</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>NUTRICIONISTA</td>
+                            <td class="text-center">9</td>
+                        </tr>
+                        <tr>
+                            <td>TÉCNICO EM RADIOLOGIA E IMAGENOLOGIA</td>
+                            <td class="text-center">5</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>BIOMÉDICO</td>
+                            <td class="text-center">5</td>
+                        </tr>
+                        <tr>
+                            <td>TÉCNICO EM PATOLOGIA CLÍNICA</td>
+                            <td class="text-center">8</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>FARMACÊUTICO</td>
+                            <td class="text-center">7</td>
+                        </tr>
+                        <tr>
+                            <td>FONOAUDIÓLOGO GERAL</td>
+                            <td class="text-center">7</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>PSICÓLOGO CLÍNICO</td>
+                            <td class="text-center">10</td>
+                        </tr>
+                        <tr>
+                            <td>TECNÓLOGO EM RADIOLOGIA</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>AUXILIAR DE LABORATÓRIO DE ANÁLISES CLÍNICAS</td>
+                            <td class="text-center">4</td>
+                        </tr>
+                        <tr>
+                            <td>TÉCNICO EM LABORATÓRIO DE FARMÁCIA</td>
+                            <td class="text-center">2</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>ARTETERAPEUTA</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr>
+                            <td>PROFISSIONAL DE EDUCAÇÃO FÍSICA NA SAÚDE</td>
+                            <td class="text-center">3</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>AVALIADOR FÍSICO</td>
+                            <td class="text-center">1</td>
+                        </tr>
+
+                        <!-- Profissionais Administrativos e de Apoio -->
+                        <tr class="bg-blue-50 font-semibold">
+                            <td colspan="2">Profissionais Administrativos e de Apoio</td>
+                        </tr>
+                        <tr>
+                            <td>ADMINISTRADOR</td>
+                            <td class="text-center">5</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>ASSISTENTE SOCIAL</td>
+                            <td class="text-center">6</td>
+                        </tr>
+                        <tr>
+                            <td>RECEPCIONISTA, EM GERAL</td>
+                            <td class="text-center">6</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>ATENDENTE DE FARMÁCIA - BALCONISTA</td>
+                            <td class="text-center">5</td>
+                        </tr>
+                        <tr>
+                            <td>ASSISTENTE ADMINISTRATIVO</td>
+                            <td class="text-center">11</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>DIRETOR ADMINISTRATIVO</td>
+                            <td class="text-center">2</td>
+                        </tr>
+                        <tr>
+                            <td>GERENTE DE SERVIÇOS DE SAÚDE</td>
+                            <td class="text-center">6</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>ADVOGADO</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr>
+                            <td>ANALISTA DE SISTEMAS DE AUTOMAÇÃO</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>GERENTE DE ALMOXARIFADO</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr>
+                            <td>DIRETOR DE MANUTENÇÃO</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>TÉCNICO EM MANUTENÇÃO DE EQUIPAMENTOS DE INFORMÁTICA</td>
+                            <td class="text-center">3</td>
+                        </tr>
+                        <tr>
+                            <td>TÉCNICO EM SEGURANÇA DO TRABALHO</td>
+                            <td class="text-center">2</td>
+                        </tr>
+
+                        <!-- Profissionais de Serviços Gerais e Transporte -->
+                        <tr class="bg-blue-50 font-semibold">
+                            <td colspan="2">Profissionais de Serviços Gerais e Transporte</td>
+                        </tr>
+                        <tr>
+                            <td>TRABALHADOR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO DE ÁREAS PÚBLICAS</td>
+                            <td class="text-center">9</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>COZINHEIRO GERAL</td>
+                            <td class="text-center">3</td>
+                        </tr>
+                        <tr>
+                            <td>CONDUTOR DE AMBULÂNCIA</td>
+                            <td class="text-center">2</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>AGENTE DE SEGURANÇA</td>
+                            <td class="text-center">2</td>
+                        </tr>
+                        <tr>
+                            <td>COPEIRO</td>
+                            <td class="text-center">5</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>MOTORISTA DE FURGÃO OU VEÍCULO SIMILAR</td>
+                            <td class="text-center">2</td>
+                        </tr>
+                        <tr>
+                            <td>CONFERENTE-EXPEDIDOR DE ROUPAS (LAVANDERIAS)</td>
+                            <td class="text-center">3</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>ELETROTÉCNICO</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr>
+                            <td>PORTEIRO DE EDIFÍCIOS</td>
+                            <td class="text-center">2</td>
+                        </tr>
+
+                        <!-- Profissionais de Saúde Indígena e Saúde Pública -->
+                        <tr class="bg-blue-50 font-semibold">
+                            <td colspan="2">Profissionais de Saúde Indígena e Saúde Pública</td>
+                        </tr>
+                        <tr>
+                            <td>AGENTE INDÍGENA DE SAÚDE</td>
+                            <td class="text-center">6</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>AGENTE INDÍGENA DE SANEAMENTO</td>
+                            <td class="text-center">1</td>
+                        </tr>
+                        <tr>
+                            <td>AGENTE DE SAÚDE PÚBLICA</td>
+                            <td class="text-center">2</td>
+                        </tr>
+
+                        <!-- Total Geral -->
+                        <tr class="bg-blue-200 font-bold">
+                            <td>Total de Profissionais</td>
+                            <td class="text-center">269</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+                    <h4 class="font-semibold mb-2">Custo Médio Salarial por Principais Categorias (R$/mês):</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white p-3 rounded shadow-sm">
+                            <h5 class="font-medium text-blue-700">Médicos</h5>
+                            <p class="text-xl font-bold text-blue-800">R$ 11.500,00 - 18.000,00</p>
+                            <p class="text-sm text-gray-600">De acordo com especialidade e carga horária</p>
+                        </div>
+                        <div class="bg-white p-3 rounded shadow-sm">
+                            <h5 class="font-medium text-blue-700">Enfermeiros</h5>
+                            <p class="text-xl font-bold text-blue-800">R$ 3.800,00 - 5.200,00</p>
+                            <p class="text-sm text-gray-600">Variação conforme cargos e gratificações</p>
+                        </div>
+                        <div class="bg-white p-3 rounded shadow-sm">
+                            <h5 class="font-medium text-blue-700">Técnicos</h5>
+                            <p class="text-xl font-bold text-blue-800">R$ 1.800,00 - 2.500,00</p>
+                            <p class="text-sm text-gray-600">Inclui técnicos de enfermagem e laboratório</p>
+                        </div>
+                        <div class="bg-white p-3 rounded shadow-sm">
+                            <h5 class="font-medium text-blue-700">Cirurgiões-Dentistas</h5>
+                            <p class="text-xl font-bold text-blue-800">R$ 5.200,00 - 7.800,00</p>
+                            <p class="text-sm text-gray-600">Variação conforme especialidade</p>
+                        </div>
+                        <div class="bg-white p-3 rounded shadow-sm">
+                            <h5 class="font-medium text-blue-700">Especialistas</h5>
+                            <p class="text-xl font-bold text-blue-800">R$ 3.500,00 - 6.000,00</p>
+                            <p class="text-sm text-gray-600">Fisioterapeutas, psicólogos, nutricionistas, etc.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded shadow-sm">
+                            <h5 class="font-medium text-blue-700">Administrativo</h5>
+                            <p class="text-xl font-bold text-blue-800">R$ 1.600,00 - 3.800,00</p>
+                            <p class="text-sm text-gray-600">De assistentes a coordenadores</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-600 italic">
+                        Nota: Os valores apresentados são estimativas médias baseadas no mercado regional para o ano de 2025,
+                        podendo variar conforme planos de carreira, tempo de serviço e gratificações específicas.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 4. Programas e Ações -->
+        <div class="section mt-8">
+            <h2 class="section-title text-2xl">4. PROGRAMAS E AÇÕES</h2>
+            
+            <h3 class="text-xl font-semibold mb-2 text-blue-700">4.1 Programa de Fortalecimento da Atenção Primária à Saúde</h3>
+            <div class="card">
+                <h4 class="font-bold mb-2">Objetivo:</h4>
+                <p class="mb-4">Ampliar e qualificar a cobertura da Estratégia Saúde da Família, fortalecendo seu papel como ordenadora da rede de atenção à saúde.</p>
+                
+                <h4 class="font-bold mb-2">Principais ações:</h4>
+                <ul class="list-disc pl-5">
+                    <li>Implantação de 4 novas equipes de Saúde da Família, atingindo cobertura de 90% da população</li>
+                    <li>Reforma e adequação de 6 Unidades Básicas de Saúde existentes</li>
+                    <li>Construção de 2 novas UBS em áreas de expansão urbana</li>
+                    <li>Implementação do Programa Saúde na Hora, ampliando horário de atendimento em unidades estratégicas</li>
+                    <li>Informatização de 100% das UBS com prontuário eletrônico integrado</li>
+                    <li>Implementação do programa de telessaúde em parceria com universidades</li>
+                    <li>Capacitação permanente das equipes de saúde da família</li>
+                    <li>Fortalecimento das ações de promoção da saúde e prevenção de doenças</li>
+                    <li>Implementação de protocolos clínicos baseados em evidências</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">4.2 Programa de Qualificação da Assistência Hospitalar e Especializada</h3>
+            <div class="card">
+                <h4 class="font-bold mb-2">Objetivo:</h4>
+                <p class="mb-4">Fortalecer o Hospital Regional do Velho Chico e qualificar a oferta de serviços especializados no município.</p>
+                
+                <h4 class="font-bold mb-2">Principais ações:</h4>
+                <ul class="list-disc pl-5">
+                    <li>Apoio técnico e complementação financeira à gestão do Hospital Regional</li>
+                    <li>Estruturação de sistema de regulação municipal integrado à central regional</li>
+                    <li>Implementação do Programa de Atenção Domiciliar (Melhor em Casa)</li>
+                    <li>Estruturação de Centro de Especialidades Médicas Municipal</li>
+                    <li>Ampliação da oferta de exames diagnósticos no município</li>
+                    <li>Implementação do sistema de transporte sanitário para referências regionais</li>
+                    <li>Qualificação da assistência de urgência e emergência</li>
+                    <li>Estruturação da rede de atenção psicossocial, com fortalecimento do CAPS</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">4.3 Programa de Vigilância em Saúde Integrada</h3>
+            <div class="card">
+                <h4 class="font-bold mb-2">Objetivo:</h4>
+                <p class="mb-4">Fortalecer as ações de vigilância epidemiológica, sanitária, ambiental e em saúde do trabalhador de forma integrada.</p>
+                
+                <h4 class="font-bold mb-2">Principais ações:</h4>
+                <ul class="list-disc pl-5">
+                    <li>Estruturação física e tecnológica da Diretoria de Vigilância em Saúde</li>
+                    <li>Implementação de sala de situação em saúde para monitoramento de indicadores</li>
+                    <li>Intensificação das ações de combate às arboviroses</li>
+                    <li>Fortalecimento das ações de imunização, com busca ativa de não vacinados</li>
+                    <li>Capacitação de equipes para investigação epidemiológica</li>
+                    <li>Implementação do programa de vigilância da água para consumo humano</li>
+                    <li>Estruturação das ações de vigilância sanitária em estabelecimentos comerciais e de serviços</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">4.4 Programa de Saúde Materno-Infantil</h3>
+            <div class="card">
+                <h4 class="font-bold mb-2">Objetivo:</h4>
+                <p class="mb-4">Reduzir a mortalidade infantil e qualificar a atenção à saúde das gestantes e crianças.</p>
+                
+                <h4 class="font-bold mb-2">Principais ações:</h4>
+                <ul class="list-disc pl-5">
+                    <li>Implementação da Rede Cegonha no município</li>
+                    <li>Qualificação do pré-natal nas UBS, com captação precoce de gestantes</li>
+                    <li>Implantação do Programa de Puericultura em todas as UBS</li>
+                    <li>Estruturação de ambulatório de alto risco para gestantes</li>
+                    <li>Implementação do Comitê de Prevenção de Mortalidade Materna e Infantil</li>
+                    <li>Programa de visitas domiciliares para gestantes e recém-nascidos de risco</li>
+                    <li>Ações de estímulo ao aleitamento materno</li>
+                    <li>Capacitação das equipes em atenção às urgências obstétricas</li>
+                </ul>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">4.5 Programa de Gestão Estratégica e Participativa</h3>
+            <div class="card">
+                <h4 class="font-bold mb-2">Objetivo:</h4>
+                <p class="mb-4">Modernizar a gestão da saúde municipal com foco em resultados e participação social.</p>
+                
+                <h4 class="font-bold mb-2">Principais ações:</h4>
+                <ul class="list-disc pl-5">
+                    <li>Implementação de modelo de gestão por resultados com indicadores e metas</li>
+                    <li>Fortalecimento do Conselho Municipal de Saúde</li>
+                    <li>Estruturação da Ouvidoria do SUS municipal</li>
+                    <li>Implementação do Programa de Educação Permanente para trabalhadores do SUS</li>
+                    <li>Realização de Conferências Municipais de Saúde</li>
+                    <li>Elaboração e monitoramento dos instrumentos de gestão (PMS, PAS, RAG)</li>
+                    <li>Desenvolvimento de sistema informatizado de gestão integrado</li>
+                    <li>Criação de canal de comunicação digital com a população</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 5. Metas e Indicadores -->
+        <div class="section mt-8">
+            <h2 class="section-title text-2xl">5. METAS E INDICADORES</h2>
+            
+            <h3 class="text-xl font-semibold mb-2 text-blue-700">5.1 Indicadores de Atenção Primária</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th>Indicador</th>
+                            <th>Situação Atual</th>
+                            <th>Meta para 2026</th>
+                            <th>Meta para 2028</th>
+                            <th>Fonte</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cobertura da ESF</td>
+                            <td class="text-center">69,5%</td>
+                            <td class="text-center">80%</td>
+                            <td class="text-center">90%</td>
+                            <td>e-Gestor AB</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Cobertura vacinal</td>
+                            <td class="text-center">75%</td>
+                            <td class="text-center">85%</td>
+                            <td class="text-center">95%</td>
+                            <td>SIPNI</td>
+                        </tr>
+                        <tr>
+                            <td>Proporção de gestantes com 7 ou mais consultas de pré-natal</td>
+                            <td class="text-center">60%</td>
+                            <td class="text-center">75%</td>
+                            <td class="text-center">85%</td>
+                            <td>SINASC</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Taxa de internações por causas sensíveis à APS</td>
+                            <td class="text-center">30%</td>
+                            <td class="text-center">25%</td>
+                            <td class="text-center">20%</td>
+                            <td>SIH-SUS</td>
+                        </tr>
+                        <tr>
+                            <td>Cobertura de acompanhamento de hipertensos</td>
+                            <td class="text-center">60%</td>
+                            <td class="text-center">75%</td>
+                            <td class="text-center">85%</td>
+                            <td>SISAB</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Cobertura de acompanhamento de diabéticos</td>
+                            <td class="text-center">65%</td>
+                            <td class="text-center">75%</td>
+                            <td class="text-center">85%</td>
+                            <td>SISAB</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">5.2 Indicadores de Saúde Materno-Infantil</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th>Indicador</th>
+                            <th>Situação Atual</th>
+                            <th>Meta para 2026</th>
+                            <th>Meta para 2028</th>
+                            <th>Fonte</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Taxa de mortalidade infantil</td>
+                            <td class="text-center">26,88</td>
+                            <td class="text-center">20</td>
+                            <td class="text-center">15</td>
+                            <td>SIM/SINASC</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Proporção de óbitos infantis investigados</td>
+                            <td class="text-center">70%</td>
+                            <td class="text-center">90%</td>
+                            <td class="text-center">100%</td>
+                            <td>SIM</td>
+                        </tr>
+                        <tr>
+                            <td>Proporção de gestantes com teste de sífilis</td>
+                            <td class="text-center">80%</td>
+                            <td class="text-center">90%</td>
+                            <td class="text-center">95%</td>
+                            <td>SISAB</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Proporção de partos normais</td>
+                            <td class="text-center">30%</td>
+                            <td class="text-center">40%</td>
+                            <td class="text-center">45%</td>
+                            <td>SINASC</td>
+                        </tr>
+                        <tr>
+                            <td>Taxa de mortalidade materna</td>
+                            <td class="text-center">2/ano</td>
+                            <td class="text-center">1/ano</td>
+                            <td class="text-center">0</td>
+                            <td>SIM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">5.3 Indicadores de Vigilância em Saúde</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th>Indicador</th>
+                            <th>Situação Atual</th>
+                            <th>Meta para 2026</th>
+                            <th>Meta para 2028</th>
+                            <th>Fonte</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Proporção de casos de doenças de notificação compulsória encerrados oportunamente</td>
+                            <td class="text-center">75%</td>
+                            <td class="text-center">85%</td>
+                            <td class="text-center">90%</td>
+                            <td>SINAN</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Taxa de incidência de dengue</td>
+                            <td class="text-center">300/100 mil</td>
+                            <td class="text-center">200/100 mil</td>
+                            <td class="text-center">150/100 mil</td>
+                            <td>SINAN</td>
+                        </tr>
+                        <tr>
+                            <td>Proporção de estabelecimentos inspecionados pela vigilância sanitária</td>
+                            <td class="text-center">60%</td>
+                            <td class="text-center">80%</td>
+                            <td class="text-center">90%</td>
+                            <td>SINAVISA</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Proporção de óbitos com causa básica definida</td>
+                            <td class="text-center">85%</td>
+                            <td class="text-center">90%</td>
+                            <td class="text-center">95%</td>
+                            <td>SIM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">5.4 Indicadores de Gestão</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th>Indicador</th>
+                            <th>Situação Atual</th>
+                            <th>Meta para 2026</th>
+                            <th>Meta para 2028</th>
+                            <th>Fonte</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Proporção de UBS informatizadas com prontuário eletrônico</td>
+                            <td class="text-center">40%</td>
+                            <td class="text-center">80%</td>
+                            <td class="text-center">100%</td>
+                            <td>SMS</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Índice de execução orçamentária da saúde</td>
+                            <td class="text-center">85%</td>
+                            <td class="text-center">90%</td>
+                            <td class="text-center">95%</td>
+                            <td>SIOPS</td>
+                        </tr>
+                        <tr>
+                            <td>Percentual de investimento em APS do orçamento municipal de saúde</td>
+                            <td class="text-center">50%</td>
+                            <td class="text-center">55%</td>
+                            <td class="text-center">60%</td>
+                            <td>SIOPS</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Tempo médio de espera para consultas especializadas</td>
+                            <td class="text-center">120 dias</td>
+                            <td class="text-center">90 dias</td>
+                            <td class="text-center">60 dias</td>
+                            <td>SISREG</td>
+                        </tr>
+                        <tr>
+                            <td>Índice de satisfação dos usuários</td>
+                            <td class="text-center">70%</td>
+                            <td class="text-center">80%</td>
+                            <td class="text-center">85%</td>
+                            <td>Ouvidoria</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- 6. Orçamento -->
+        <div class="section mt-8">
+            <h2 class="section-title text-2xl">6. ORÇAMENTO</h2>
+            
+            <h3 class="text-xl font-semibold mb-2 text-blue-700">6.1 Previsão Orçamentária (em R$ mil)</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th>Fonte de Recursos</th>
+                            <th>2025</th>
+                            <th>2026</th>
+                            <th>2027</th>
+                            <th>2028</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Receitas Próprias (15% da receita municipal)</td>
+                            <td class="text-right">8.500</td>
+                            <td class="text-right">9.000</td>
+                            <td class="text-right">9.500</td>
+                            <td class="text-right">10.000</td>
+                            <td class="text-right">37.000</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Transferências SUS - União</td>
+                            <td class="text-right">12.500</td>
+                            <td class="text-right">13.500</td>
+                            <td class="text-right">14.500</td>
+                            <td class="text-right">15.500</td>
+                            <td class="text-right">56.000</td>
+                        </tr>
+                        <tr>
+                            <td>Transferências SUS - Estado</td>
+                            <td class="text-right">2.000</td>
+                            <td class="text-right">2.200</td>
+                            <td class="text-right">2.400</td>
+                            <td class="text-right">2.600</td>
+                            <td class="text-right">9.200</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Emendas Parlamentares</td>
+                            <td class="text-right">1.500</td>
+                            <td class="text-right">1.800</td>
+                            <td class="text-right">2.000</td>
+                            <td class="text-right">2.000</td>
+                            <td class="text-right">7.300</td>
+                        </tr>
+                        <tr>
+                            <td>Convênios e Projetos Específicos</td>
+                            <td class="text-right">1.000</td>
+                            <td class="text-right">1.500</td>
+                            <td class="text-right">1.800</td>
+                            <td class="text-right">2.000</td>
+                            <td class="text-right">6.300</td>
+                        </tr>
+                        <tr class="bg-gray-100 font-bold">
+                            <td>Total</td>
+                            <td class="text-right">25.500</td>
+                            <td class="text-right">28.000</td>
+                            <td class="text-right">30.200</td>
+                            <td class="text-right">32.100</td>
+                            <td class="text-right">115.800</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">6.2 Distribuição por Programas e Ações (em R$ mil)</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th>Programas</th>
+                            <th>2025</th>
+                            <th>2026</th>
+                            <th>2027</th>
+                            <th>2028</th>
+                            <th>Total</th>
+                            <th>%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Programa de Fortalecimento da APS</td>
+                            <td class="text-right">10.000</td>
+                            <td class="text-right">11.000</td>
+                            <td class="text-right">12.000</td>
+                            <td class="text-right">12.500</td>
+                            <td class="text-right">45.500</td>
+                            <td class="text-right">39,3%</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Programa de Qualificação da Assistência Hospitalar e Especializada</td>
+                            <td class="text-right">8.000</td>
+                            <td class="text-right">8.500</td>
+                            <td class="text-right">9.000</td>
+                            <td class="text-right">9.500</td>
+                            <td class="text-right">35.000</td>
+                            <td class="text-right">30,2%</td>
+                        </tr>
+                        <tr>
+                            <td>Programa de Vigilância em Saúde Integrada</td>
+                            <td class="text-right">2.500</td>
+                            <td class="text-right">2.800</td>
+                            <td class="text-right">3.000</td>
+                            <td class="text-right">3.200</td>
+                            <td class="text-right">11.500</td>
+                            <td class="text-right">9,9%</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Programa de Saúde Materno-Infantil</td>
+                            <td class="text-right">2.000</td>
+                            <td class="text-right">2.200</td>
+                            <td class="text-right">2.400</td>
+                            <td class="text-right">2.600</td>
+                            <td class="text-right">9.200</td>
+                            <td class="text-right">7,9%</td>
+                        </tr>
+                        <tr>
+                            <td>Programa de Gestão Estratégica e Participativa</td>
+                            <td class="text-right">1.500</td>
+                            <td class="text-right">1.800</td>
+                            <td class="text-right">2.000</td>
+                            <td class="text-right">2.300</td>
+                            <td class="text-right">7.600</td>
+                            <td class="text-right">6,6%</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Gestão Administrativa da SMS</td>
+                            <td class="text-right">1.500</td>
+                            <td class="text-right">1.700</td>
+                            <td class="text-right">1.800</td>
+                            <td class="text-right">2.000</td>
+                            <td class="text-right">7.000</td>
+                            <td class="text-right">6,1%</td>
+                        </tr>
+                        <tr class="bg-gray-100 font-bold">
+                            <td>Total</td>
+                            <td class="text-right">25.500</td>
+                            <td class="text-right">28.000</td>
+                            <td class="text-right">30.200</td>
+                            <td class="text-right">32.100</td>
+                            <td class="text-right">115.800</td>
+                            <td class="text-right">100%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">6.3 Distribuição por Natureza de Despesa (em R$ mil)</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th>Natureza da Despesa</th>
+                            <th>2025</th>
+                            <th>2026</th>
+                            <th>2027</th>
+                            <th>2028</th>
+                            <th>Total</th>
+                            <th>%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pessoal e Encargos Sociais</td>
+                            <td class="text-right">15.300</td>
+                            <td class="text-right">16.800</td>
+                            <td class="text-right">18.120</td>
+                            <td class="text-right">19.260</td>
+                            <td class="text-right">69.480</td>
+                            <td class="text-right">60%</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Material de Consumo</td>
+                            <td class="text-right">3.825</td>
+                            <td class="text-right">4.200</td>
+                            <td class="text-right">4.530</td>
+                            <td class="text-right">4.815</td>
+                            <td class="text-right">17.370</td>
+                            <td class="text-right">15%</td>
+                        </tr>
+                        <tr>
+                            <td>Serviços de Terceiros</td>
+                            <td class="text-right">3.825</td>
+                            <td class="text-right">4.200</td>
+                            <td class="text-right">4.530</td>
+                            <td class="text-right">4.815</td>
+                            <td class="text-right">17.370</td>
+                            <td class="text-right">15%</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Investimentos</td>
+                            <td class="text-right">2.550</td>
+                            <td class="text-right">2.800</td>
+                            <td class="text-right">3.020</td>
+                            <td class="text-right">3.210</td>
+                            <td class="text-right">11.580</td>
+                            <td class="text-right">10%</td>
+                        </tr>
+                        <tr class="bg-gray-100 font-bold">
+                            <td>Total</td>
+                            <td class="text-right">25.500</td>
+                            <td class="text-right">28.000</td>
+                            <td class="text-right">30.200</td>
+                            <td class="text-right">32.100</td>
+                            <td class="text-right">115.800</td>
+                            <td class="text-right">100%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- 7. Cronograma de Implementação -->
+        <div class="section mt-8">
+            <h2 class="section-title text-2xl">7. CRONOGRAMA DE IMPLEMENTAÇÃO</h2>
+            
+            <h3 class="text-xl font-semibold mb-2 text-blue-700">7.1 Fase Inicial (Primeiros 6 meses)</h3>
+            <div class="card">
+                <div class="timeline-item">
+                    <h4 class="font-bold">Mês 1-2: Estruturação da Equipe Gestora</h4>
+                    <ul class="list-disc pl-5 mb-2">
+                        <li>Nomeação do secretário municipal de saúde e equipe de direção</li>
+                        <li>Reestruturação administrativa da SMS conforme organograma proposto</li>
+                        <li>Realização de diagnóstico detalhado dos serviços de saúde</li>
+                        <li>Elaboração do Plano Municipal de Saúde 2025-2028</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4 class="font-bold">Mês 3-4: Planejamento e Organização</h4>
+                    <ul class="list-disc pl-5 mb-2">
+                        <li>Apresentação e aprovação do Plano Municipal de Saúde no Conselho</li>
+                        <li>Revisão e atualização dos instrumentos normativos da SMS</li>
+                        <li>Capacitação inicial da equipe gestora</li>
+                        <li>Elaboração do plano de contratação e dimensionamento de pessoal</li>
+                        <li>Reuniões com equipes das unidades de saúde para alinhamento</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4 class="font-bold">Mês 5-6: Primeiras Intervenções</h4>
+                    <ul class="list-disc pl-5">
+                        <li>Início das melhorias na estrutura física das unidades prioritárias</li>
+                        <li>Implementação do sistema de monitoramento de indicadores</li>
+                        <li>Elaboração dos protocolos assistenciais prioritários</li>
+                        <li>Início do processo de informatização das unidades</li>
+                        <li>Estruturação da Ouvidoria do SUS municipal</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">7.2 Fase de Consolidação (7-18 meses)</h3>
+            <div class="card">
+                <div class="timeline-item">
+                    <h4 class="font-bold">Mês 7-9: Ampliação da APS</h4>
+                    <ul class="list-disc pl-5 mb-2">
+                        <li>Implantação de 2 novas equipes de Saúde da Família</li>
+                        <li>Reforma de 3 Unidades Básicas de Saúde</li>
+                        <li>Implementação do prontuário eletrônico em 50% das unidades</li>
+                        <li>Capacitação das equipes em protocolos clínicos</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4 class="font-bold">Mês 10-12: Qualificação da Atenção Especializada</h4>
+                    <ul class="list-disc pl-5 mb-2">
+                        <li>Estruturação do sistema de regulação municipal</li>
+                        <li>Início da implantação do Centro de Especialidades</li>
+                        <li>Implementação do programa de atenção domiciliar</li>
+                        <li>Estruturação do transporte sanitário</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4 class="font-bold">Mês 13-18: Expansão e Consolidação</h4>
+                    <ul class="list-disc pl-5">
+                        <li>Implantação das 2 equipes restantes de Saúde da Família</li>
+                        <li>Reforma das 3 UBS restantes</li>
+                        <li>Implementação do prontuário eletrônico em 100% das unidades</li>
+                        <li>Consolidação do Centro de Especialidades</li>
+                        <li>Implementação completa do sistema de regulação</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">7.3 Fase de Monitoramento e Ajustes (19-48 meses)</h3>
+            <div class="card">
+                <div class="timeline-item">
+                    <h4 class="font-bold">Ano 2: Aprimoramento e Monitoramento</h4>
+                    <ul class="list-disc pl-5 mb-2">
+                        <li>Avaliação semestral dos indicadores e metas</li>
+                        <li>Ajustes nos programas conforme resultados</li>
+                        <li>Implementação do programa de qualidade e humanização</li>
+                        <li>Realização da Conferência Municipal de Saúde</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4 class="font-bold">Ano 3: Consolidação e Inovação</h4>
+                    <ul class="list-disc pl-5 mb-2">
+                        <li>Avaliação de meio termo do Plano Municipal de Saúde</li>
+                        <li>Expansão de programas bem-sucedidos</li>
+                        <li>Implementação de projetos inovadores em saúde</li>
+                        <li>Fortalecimento das parcerias intersetoriais</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4 class="font-bold">Ano 4: Avaliação Final e Planejamento Futuro</h4>
+                    <ul class="list-disc pl-5">
+                        <li>Avaliação completa dos resultados do Plano Municipal de Saúde</li>
+                        <li>Documentação das lições aprendidas e melhores práticas</li>
+                        <li>Preparação do diagnóstico para o próximo ciclo de planejamento</li>
+                        <li>Elaboração das diretrizes para o próximo Plano Municipal de Saúde</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 8. Considerações Finais -->
+        <div class="section mt-8 mb-10">
+            <h2 class="section-title text-2xl">8. CONSIDERAÇÕES FINAIS</h2>
+            
+            <div class="card">
+                <p class="mb-4">
+                    Este projeto de gestão para a saúde do município de Ibotirama-BA foi elaborado com base em 
+                    evidências e alinhado às políticas nacionais de saúde e às necessidades específicas da população local. 
+                    A implementação bem-sucedida dependerá do compromisso da gestão municipal, da participação ativa 
+                    dos profissionais de saúde e da comunidade, e da articulação efetiva com as esferas estadual e federal do SUS.
+                </p>
+                
+                <p class="mb-4">
+                    Os desafios são significativos, sobretudo considerando a alta taxa de mortalidade infantil e as 
+                    limitações de infraestrutura e recursos humanos. No entanto, a proposta de reorganização da 
+                    Secretaria Municipal de Saúde, o fortalecimento da Atenção Primária e a implementação de um modelo 
+                    de gestão por resultados têm potencial para transformar positivamente a realidade sanitária do município.
+                </p>
+                
+                <p class="mb-4">
+                    Vale ressaltar que este projeto prevê mecanismos de monitoramento e avaliação contínuos, 
+                    permitindo ajustes e correções de rumo quando necessário. Além disso, a transparência e a 
+                    participação social são pilares fundamentais desta proposta, garantindo que a população tenha 
+                    voz ativa nas decisões sobre a saúde municipal.
+                </p>
+                
+                <p>
+                    Com a implementação deste projeto, espera-se que Ibotirama avance significativamente nos 
+                    indicadores de saúde, proporcione melhor qualidade de vida à sua população e se torne referência 
+                    regional em gestão eficiente e humanizada do Sistema Único de Saúde.
+                </p>
+            </div>
+        </div>
+        
+        <!-- 9. Sistemas Integrados e Suporte Tecnológico -->
+        <div class="section mt-8">
+            <h2 class="section-title text-2xl">9. SISTEMAS INTEGRADOS E SUPORTE TECNOLÓGICO</h2>
+            
+            <h3 class="text-xl font-semibold mb-2 text-blue-700">9.1 Sistemas Integrados de Gestão em Saúde</h3>
+            <div class="card">
+                <p class="mb-4">
+                    Realizamos criação e customização de sistemas de acordo com as necessidades do município, 
+                    abrangendo os seguintes módulos integrados:
+                </p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-blue-50 p-3 rounded-lg text-center shadow-sm">
+                        <p class="font-medium">TFD</p>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg text-center shadow-sm">
+                        <p class="font-medium">FARMÁCIA</p>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg text-center shadow-sm">
+                        <p class="font-medium">ALMOXARIFADO</p>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg text-center shadow-sm">
+                        <p class="font-medium">AMBULATORIAL</p>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg text-center shadow-sm">
+                        <p class="font-medium">EXAMES</p>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg text-center shadow-sm">
+                        <p class="font-medium">PRONTO ATENDIMENTO</p>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg text-center shadow-sm">
+                        <p class="font-medium">INTEGRAÇÃO COM E-SUS AB</p>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg text-center shadow-sm">
+                        <p class="font-medium">REGULAÇÃO</p>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg text-center shadow-sm">
+                        <p class="font-medium">FATURAMENTO</p>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg text-center shadow-sm">
+                        <p class="font-medium">ODONTOLOGIA</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">9.2 Hospedagem em Nuvem</h3>
+            <div class="card bg-gradient-to-br from-blue-50 to-white">
+                <p class="mb-4">
+                    Fornecemos a hospedagem em nuvem para municípios que não têm ou têm dificuldades com a integração 
+                    de sistemas dentro e fora do município.
+                </p>
+                
+                <ul class="list-disc pl-5 mb-4">
+                    <li>Locação do servidor web para que o sistema possa ser acessado de qualquer parte de mundo</li>
+                    <li>Suporte técnico 24 horas por dia 7 dias por semana com atendimento diferenciado</li>
+                </ul>
+                
+                <div class="flex items-center bg-blue-100 p-3 rounded-lg mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                    </svg>
+                    <p class="font-medium">Solução completa de hospedagem segura para dados de saúde, com backup diário e monitoramento constante</p>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">9.3 Suporte In loco ou Remoto</h3>
+            <div class="card">
+                <p class="mb-4">
+                    Estamos prontos para lhe atender dentro da unidade de saúde quanto remotamente 
+                    flexibilizando a melhor satisfação a nosso cliente.
+                </p>
+                
+                <div class="flex items-center bg-green-50 p-3 rounded-lg mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-700 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                    </svg>
+                    <p class="font-medium">Suporte via e-mail, chat, telefone e WhatsApp</p>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">9.4 Aplicativos Integrados</h3>
+            <div class="card">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm">
+                        <h4 class="font-bold mb-2 text-blue-700">E-Sus Território</h4>
+                        <p>Aplicativo para agentes comunitários de saúde realizarem cadastros e visitas domiciliares</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm">
+                        <h4 class="font-bold mb-2 text-blue-700">ConectSus</h4>
+                        <p>Configuração completa para integração com o aplicativo oficial do Ministério da Saúde</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm">
+                        <h4 class="font-bold mb-2 text-blue-700">APS Atividade Coletiva</h4>
+                        <p>Aplicativo para registro de atividades coletivas realizadas pelas equipes de saúde</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm">
+                        <h4 class="font-bold mb-2 text-blue-700">E-Sus AD</h4>
+                        <p>Solução para gerenciamento da Atenção Domiciliar</p>
+                    </div>
+                </div>
+                
+                <p class="mb-4">
+                    Realizamos o treinamento completo com os profissionais para a utilização dos aplicativos 
+                    disponibilizados pelo Ministério da Saúde além das configurações e integrações necessárias 
+                    para um funcionamento correto e assertivo. 
+                </p>
+                
+                <p>
+                    No aplicativo ConectSus realizamos todas as configurações para que o paciente tenha 
+                    interação com sua unidade de saúde podendo até realizar agendamentos de consultas sem 
+                    precisar de sair de casa e além disso receber informações de consultas no celular 
+                    trazendo assim uma economia tanto para o município quanto para o paciente que não terá 
+                    a necessidade de se deslocar de sua residência para agendar uma consulta.
+                </p>
+            </div>
+            
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">9.5 Capacitação e Treinamento</h3>
+            <div class="card">
+                <p class="mb-4">
+                    Oferecemos programas completos de capacitação e treinamento para todos os profissionais 
+                    envolvidos na operação dos sistemas, garantindo:
+                </p>
+                
+                <ul class="list-disc pl-5 mb-4">
+                    <li>Treinamento inicial presencial para implantação dos sistemas</li>
+                    <li>Capacitação contínua por meio de plataforma EAD</li>
+                    <li>Workshops periódicos para atualização e aprendizado de novas funcionalidades</li>
+                    <li>Material didático completo (manuais, vídeos e tutoriais)</li>
+                    <li>Certificação dos profissionais capacitados</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 10. Custos por Unidade de Saúde -->
+        <div class="section mt-8 mb-10">
+            <h2 class="section-title text-2xl">10. CUSTOS POR UNIDADE DE SAÚDE</h2>
+            
+            <div class="card overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th>Unidade de Saúde</th>
+                            <th>Sistemas Integrados</th>
+                            <th>Hospedagem e Suporte</th>
+                            <th>Capacitação e Treinamento</th>
+                            <th>Custo Mensal</th>
+                            <th>Custo Anual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>UBS Centro</td>
+                            <td class="text-right">R$ 2.500,00</td>
+                            <td class="text-right">R$ 800,00</td>
+                            <td class="text-right">R$ 1.200,00</td>
+                            <td class="text-right">R$ 4.500,00</td>
+                            <td class="text-right">R$ 54.000,00</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>UBS Bairro São Francisco</td>
+                            <td class="text-right">R$ 2.000,00</td>
+                            <td class="text-right">R$ 800,00</td>
+                            <td class="text-right">R$ 1.200,00</td>
+                            <td class="text-right">R$ 4.000,00</td>
+                            <td class="text-right">R$ 48.000,00</td>
+                        </tr>
+                        <tr>
+                            <td>UBS Bairro Alto da Colina</td>
+                            <td class="text-right">R$ 2.000,00</td>
+                            <td class="text-right">R$ 800,00</td>
+                            <td class="text-right">R$ 1.200,00</td>
+                            <td class="text-right">R$ 4.000,00</td>
+                            <td class="text-right">R$ 48.000,00</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>UBS Zona Rural - Distrito I</td>
+                            <td class="text-right">R$ 1.800,00</td>
+                            <td class="text-right">R$ 800,00</td>
+                            <td class="text-right">R$ 1.000,00</td>
+                            <td class="text-right">R$ 3.600,00</td>
+                            <td class="text-right">R$ 43.200,00</td>
+                        </tr>
+                        <tr>
+                            <td>UBS Zona Rural - Distrito II</td>
+                            <td class="text-right">R$ 1.800,00</td>
+                            <td class="text-right">R$ 800,00</td>
+                            <td class="text-right">R$ 1.000,00</td>
+                            <td class="text-right">R$ 3.600,00</td>
+                            <td class="text-right">R$ 43.200,00</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Centro de Especialidades</td>
+                            <td class="text-right">R$ 3.500,00</td>
+                            <td class="text-right">R$ 1.200,00</td>
+                            <td class="text-right">R$ 1.500,00</td>
+                            <td class="text-right">R$ 6.200,00</td>
+                            <td class="text-right">R$ 74.400,00</td>
+                        </tr>
+                        <tr>
+                            <td>CAPS</td>
+                            <td class="text-right">R$ 1.500,00</td>
+                            <td class="text-right">R$ 800,00</td>
+                            <td class="text-right">R$ 1.000,00</td>
+                            <td class="text-right">R$ 3.300,00</td>
+                            <td class="text-right">R$ 39.600,00</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td>Secretaria Municipal de Saúde</td>
+                            <td class="text-right">R$ 4.500,00</td>
+                            <td class="text-right">R$ 1.500,00</td>
+                            <td class="text-right">R$ 2.000,00</td>
+                            <td class="text-right">R$ 8.000,00</td>
+                            <td class="text-right">R$ 96.000,00</td>
+                        </tr>
+                        <tr class="bg-blue-100 font-bold">
+                            <td>Total</td>
+                            <td class="text-right">R$ 19.600,00</td>
+                            <td class="text-right">R$ 7.500,00</td>
+                            <td class="text-right">R$ 10.100,00</td>
+                            <td class="text-right">R$ 37.200,00</td>
+                            <td class="text-right">R$ 446.400,00</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+                    <h4 class="font-bold mb-2">Observações:</h4>
+                    <ul class="list-disc pl-5">
+                        <li>Os valores incluem todos os módulos necessários para cada tipo de unidade</li>
+                        <li>O suporte técnico 24/7 está incluído em todos os pacotes</li>
+                        <li>A capacitação inicial é presencial e as atualizações podem ser realizadas remotamente</li>
+                        <li>Contratos com duração mínima de 12 meses, com possibilidade de pagamento anual com 10% de desconto</li>
+                        <li>Atualizações e manutenções evolutivas estão incluídas nos valores apresentados</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="py-4 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 - Projeto de Gestão da Saúde Municipal de Ibotirama-BA</p>
+        </footer>
+    </div>
+    
+    <!-- Nova seção: Análise de Custos UBS Porte 1 -->
+    <div class="container mx-auto px-4 py-8 max-w-6xl mt-8 page-break">
+        <!-- Cabeçalho da Análise de Custos -->
+        <div class="header-box mb-10 text-center">
+            <h1 class="text-4xl font-bold mb-4">ANÁLISE DE CUSTOS E JUSTIFICATIVA DE INVESTIMENTOS</h1>
+            <h2 class="text-2xl font-medium mb-6">UNIDADE BÁSICA DE SAÚDE (UBS) - PORTE 1</h2>
+            <p class="text-xl">Documento técnico para gestores municipais de saúde</p>
+        </div>
+
+        <!-- 11. Análise de Custos UBS -->
+        <div class="section mt-8">
+            <h2 class="section-title text-2xl">11. ANÁLISE DETALHADA DE UBS PORTE 1</h2>
+            
+            <h3 class="text-xl font-semibold mb-2 text-blue-700">11.1 Introdução</h3>
+            <div class="card">
+                <p class="mb-4">
+                    Este documento apresenta uma análise detalhada dos custos e
+                    investimentos necessários para a implementação e operação eficiente de
+                    uma Unidade Básica de Saúde (UBS) Porte 1, alinhada com os padrões e
+                    diretrizes do Sistema Único de Saúde (SUS).
+                </p>
+                <p class="mb-4">
+                    A gestão eficiente dos recursos financeiros na atenção básica é
+                    fundamental para garantir a qualidade e a continuidade dos serviços
+                    prestados à população, bem como para otimizar o uso dos repasses
+                    federais e municipais destinados à saúde.
+                </p>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">11.2 Características da UBS Porte 1</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-blue-50 rounded-lg p-5 shadow-sm">
+                    <h4 class="font-semibold text-blue-800 mb-3">Estrutura Física</h4>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Área total do terreno: 482,06m²</li>
+                        <li>Área construída: 350,68m²</li>
+                        <li>Dimensões mínimas recomendadas: 31m x 61m</li>
+                        <li>
+                            Salas de atendimento, procedimentos, vacinas e áreas
+                            administrativas
+                        </li>
+                        <li>Espaço para acolhimento e espera dos pacientes</li>
+                    </ul>
+                </div>
+
+                <div class="bg-blue-50 rounded-lg p-5 shadow-sm">
+                    <h4 class="font-semibold text-blue-800 mb-3">
+                        Capacidade Operacional
+                    </h4>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Comporta 1 Equipe de Saúde da Família (eSF)</li>
+                        <li>Capacidade de atendimento: 3.450 a 4.000 pessoas</li>
+                        <li>
+                            Potencial de realizar cerca de 1.000 a 1.200 atendimentos
+                            mensais
+                        </li>
+                        <li>Funcionamento de segunda a sexta-feira, 8 horas por dia</li>
+                        <li>
+                            Possibilidade de implementação de serviços adicionais conforme
+                            demanda local
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 rounded-lg p-5 shadow-sm mb-6">
+                <h4 class="font-semibold text-blue-800 mb-3">
+                    Composição da Equipe - eSF
+                </h4>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>1 Médico de família e comunidade</li>
+                    <li>1 Enfermeiro</li>
+                    <li>2 Técnicos ou auxiliares de enfermagem</li>
+                    <li>4 a 6 Agentes Comunitários de Saúde (ACS)</li>
+                    <li>1 Cirurgião-dentista (opcional, equipe de Saúde Bucal)</li>
+                    <li>1 Auxiliar/Técnico em Saúde Bucal (opcional)</li>
+                    <li>Profissionais administrativos (recepção, limpeza, etc.)</li>
+                </ul>
+            </div>
+
+            <p class="text-sm text-gray-600 italic">
+                Nota: As características acima são baseadas nas normas e diretrizes do
+                Ministério da Saúde para Unidades Básicas de Saúde Porte 1, conforme
+                projetos referenciados disponibilizados pelo Fundo Nacional de Saúde.
+            </p>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">11.3 Cálculo dos Custos Mensais Revisados</h3>
+            <p class="mb-4">
+                A seguir, apresentamos uma tabela detalhada dos custos mensais
+                estimados para a operação de uma UBS Porte 1, considerando as
+                necessidades atuais de infraestrutura tecnológica e suporte
+                especializado para garantir serviços de saúde de qualidade:
+            </p>
+
+            <div class="overflow-x-auto mb-6">
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th class="w-2/5">Item</th>
+                            <th class="w-1/5">Custo Mensal (R$)</th>
+                            <th class="w-2/5">Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Profissionais (Equipe de Saúde da Família)</td>
+                            <td class="text-right">30.000,00</td>
+                            <td>
+                                Salários e encargos para médico, enfermeiro, técnicos e ACS
+                                (valor atualizado conforme média de mercado 2025)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Profissionais (Equipe de Saúde Bucal)</td>
+                            <td class="text-right">10.000,00</td>
+                            <td>
+                                Salários e encargos para cirurgião-dentista e auxiliar de
+                                saúde bucal
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Capacitação e Treinamento</td>
+                            <td class="text-right">8.000,00</td>
+                            <td>
+                                Programas de educação continuada, treinamentos em protocolos
+                                clínicos e novas tecnologias
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sistema PEC (Prontuário Eletrônico do Cidadão)</td>
+                            <td class="text-right">2.500,00</td>
+                            <td>
+                                Manutenção e suporte para sistema de registro e acompanhamento
+                                integrado ao e-SUS AB
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sistema de Inteligência de BI</td>
+                            <td class="text-right">3.000,00</td>
+                            <td>
+                                Ferramentas analíticas para gestão de indicadores e tomada de
+                                decisão baseada em dados
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Servidor em Nuvem</td>
+                            <td class="text-right">1.200,00</td>
+                            <td>
+                                Infraestrutura segura para armazenamento de dados, backup e
+                                acesso remoto (valor atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ponto Eletrônico via Reconhecimento Facial</td>
+                            <td class="text-right">500,00</td>
+                            <td>
+                                Sistema de controle de presença e segurança para os
+                                profissionais
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Suporte Técnico Online e Presencial</td>
+                            <td class="text-right">1.800,00</td>
+                            <td>
+                                Atendimento técnico 24/7 para resolução de problemas em
+                                sistemas e equipamentos (valor atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Consultoria para Gestão da Atenção Básica</td>
+                            <td class="text-right">3.800,00</td>
+                            <td>
+                                Assessoria especializada em planejamento e melhoria contínua
+                                dos serviços (valor atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Consultoria para Profissionais de Saúde</td>
+                            <td class="text-right">2.200,00</td>
+                            <td>
+                                Suporte técnico especializado para cada categoria profissional
+                                (valor atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sistema de Georreferenciamento</td>
+                            <td class="text-right">1.200,00</td>
+                            <td>
+                                Monitoramento territorial e gerenciamento das visitas
+                                domiciliares (valor atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sistema de Controle de Dispositivos Móveis</td>
+                            <td class="text-right">900,00</td>
+                            <td>
+                                Gestão segura de dispositivos utilizados pelos profissionais
+                                (valor atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Relatórios Mensais de Atividades</td>
+                            <td class="text-right">2.200,00</td>
+                            <td>
+                                Geração e análise de dados de desempenho e qualidade (valor
+                                atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Consultoria para Captação de Recursos</td>
+                            <td class="text-right">3.800,00</td>
+                            <td>
+                                Assessoria para otimização de financiamentos e recursos
+                                disponíveis (valor atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Consultoria para CNES</td>
+                            <td class="text-right">2.200,00</td>
+                            <td>
+                                Suporte para regularização e manutenção de dados no Cadastro
+                                Nacional (valor atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Consultoria para Integração de Sistemas</td>
+                            <td class="text-right">4.200,00</td>
+                            <td>
+                                Assessoria para interoperabilidade entre sistemas do SUS
+                                (valor atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sistema de Telemedicina Integrado</td>
+                            <td class="text-right">2.800,00</td>
+                            <td>
+                                Plataforma para consultas virtuais e ampliação do acesso à
+                                saúde (valor atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sistema de Monitoramento de Indicadores</td>
+                            <td class="text-right">1.800,00</td>
+                            <td>
+                                Ferramenta para acompanhamento em tempo real de indicadores de
+                                saúde (valor atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sistema de Gestão de Estoque e Medicamentos</td>
+                            <td class="text-right">1.500,00</td>
+                            <td>
+                                Controle eficiente de insumos e medicamentos, evitando
+                                desperdícios (valor atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sistema de Agendamento e Regulação</td>
+                            <td class="text-right">1.200,00</td>
+                            <td>
+                                Plataforma para otimização de fluxo de atendimento (valor
+                                atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sistema de Comunicação Interna e Externa</td>
+                            <td class="text-right">1.000,00</td>
+                            <td>
+                                Ferramentas para comunicação eficiente com usuários e equipes
+                                (valor atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sistema de Gestão de Protocolos Clínicos</td>
+                            <td class="text-right">1.200,00</td>
+                            <td>
+                                Plataforma para acesso e atualização de diretrizes
+                                terapêuticas (valor atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sistema de Satisfação do Usuário</td>
+                            <td class="text-right">1.400,00</td>
+                            <td>
+                                Monitoramento da qualidade percebida e experiência do paciente
+                                (valor atualizado)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sistema de Gestão de Vigilância em Saúde</td>
+                            <td class="text-right">1.800,00</td>
+                            <td>
+                                Plataforma para ações integradas de vigilância epidemiológica
+                                e sanitária (valor atualizado)
+                            </td>
+                        </tr>
+                        <tr class="highlight-row bg-blue-50">
+                            <td>Total Mensal</td>
+                            <td class="text-right">90.200,00</td>
+                            <td>
+                                Valor total estimado para operação mensal completa da UBS
+                                Porte 1
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                <h4 class="font-semibold text-yellow-800 mb-2">
+                    Observações Importantes:
+                </h4>
+                <ul class="list-disc pl-5 space-y-1 text-yellow-800">
+                    <li>
+                        O governo federal repassa aproximadamente R$ 10.695,00 mensais por
+                        equipe eSF, cobrindo apenas cerca de 12% do custo total.
+                    </li>
+                    <li>
+                        Os valores acima são estimativas atualizadas para 2025,
+                        considerando o cenário econômico atual e a necessidade de
+                        tecnologias modernas.
+                    </li>
+                    <li>
+                        Existe previsão de aumento do repasse federal para equipes de
+                        Saúde da Família para até R$ 34.000,00 em 2025, o que ainda
+                        cobriria apenas 38% dos custos totais.
+                    </li>
+                    <li>
+                        Os custos podem variar conforme especificidades regionais, porte
+                        populacional do município e disponibilidade de profissionais.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-blue-50 rounded p-4">
+                <h4 class="font-semibold text-blue-800 mb-2">
+                    Análise Comparativa de Fontes de Financiamento:
+                </h4>
+                <div class="flex flex-col md:flex-row gap-4 mt-2">
+                    <div class="flex-1 bg-white p-3 rounded shadow-sm">
+                        <h5 class="font-medium text-blue-700">Repasse Federal</h5>
+                        <p class="text-2xl font-bold text-blue-800">R$ 10.695,00</p>
+                        <p class="text-sm text-gray-600">12% do custo total</p>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded shadow-sm">
+                        <h5 class="font-medium text-blue-700">
+                            Complementação Municipal
+                        </h5>
+                        <p class="text-2xl font-bold text-blue-800">R$ 79.505,00</p>
+                        <p class="text-sm text-gray-600">88% do custo total</p>
+                    </div>
+                    <div class="flex-1 bg-white p-3 rounded shadow-sm">
+                        <h5 class="font-medium text-blue-700">Previsão Federal 2025</h5>
+                        <p class="text-2xl font-bold text-blue-800">R$ 34.000,00</p>
+                        <p class="text-sm text-gray-600">38% do custo total</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-8">11.4 Justificativas para o Investimento</h3>
+            <p class="mb-4">
+                O investimento nos serviços de atenção primária à saúde não deve ser
+                visto apenas como um custo, mas como um investimento estratégico com
+                retorno significativo para o sistema de saúde e para a qualidade de
+                vida da população. A seguir, apresentamos argumentos sólidos que
+                justificam a alocação de recursos adicionais:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="benefit-card p-4 rounded">
+                    <h4 class="font-semibold text-blue-800 mb-2">
+                        Custo-Efetividade da Atenção Primária
+                    </h4>
+                    <p>
+                        Estudos de custo-efetividade demonstram que para cada R$ 1,00
+                        investido na atenção básica, economiza-se entre R$ 4,00 e R$ 7,00
+                        em custos hospitalares e de média e alta complexidade. A prevenção
+                        e o diagnóstico precoce reduzem significativamente os gastos
+                        futuros com tratamentos mais complexos.
+                    </p>
+                </div>
+
+                <div class="benefit-card p-4 rounded">
+                    <h4 class="font-semibold text-blue-800 mb-2">
+                        Redução da Morbimortalidade
+                    </h4>
+                    <p>
+                        Municípios com cobertura adequada de atenção básica apresentam
+                        redução de até 45% na mortalidade infantil e queda de até 30% nas
+                        internações por condições sensíveis à atenção primária, o que
+                        representa não apenas benefícios humanos, mas também economia
+                        substancial de recursos.
+                    </p>
+                </div>
+
+                <div class="tech-card p-4 rounded">
+                    <h4 class="font-semibold text-green-800 mb-2">
+                        Impacto da Tecnologia na Qualidade da Saúde
+                    </h4>
+                    <p>
+                        A incorporação de tecnologias como prontuários eletrônicos,
+                        telemedicina e sistemas de gestão de indicadores permite um
+                        acompanhamento mais eficiente dos pacientes, reduzindo a
+                        duplicação de exames, melhorando a adesão a tratamentos e
+                        otimizando o fluxo de trabalho das equipes.
+                    </p>
+                </div>
+
+                <div class="tech-card p-4 rounded">
+                    <h4 class="font-semibold text-green-800 mb-2">
+                        Métricas Baseadas em Dados
+                    </h4>
+                    <p>
+                        Sistemas de BI e análise de dados permitem identificar tendências
+                        e necessidades da população atendida, possibilitando intervenções
+                        preventivas que reduzem entre 25% e 40% o agravamento de doenças
+                        crônicas como diabetes e hipertensão.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-blue-700 text-white p-5 rounded-lg mb-6">
+                <h4 class="font-bold text-xl mb-3">
+                    Retorno Sobre Investimento (ROI)
+                </h4>
+                <p class="mb-3">
+                    Baseado em estudos de custo-efetividade em saúde, o investimento
+                    adicional proposto para implementação dos sistemas e serviços
+                    listados possui um ROI estimado de:
+                </p>
+                <div class="bg-white text-blue-800 rounded-lg p-4 text-center font-bold text-2xl">
+                    4,2x a 7,5x em 3 anos
+                </div>
+                <p class="mt-3 text-sm">
+                    Este cálculo considera a redução de internações evitáveis, a
+                    otimização de recursos humanos e materiais, a melhoria na
+                    resolutividade da atenção básica e a prevenção de agravamentos de
+                    condições de saúde.
+                </p>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-700 mt-6">11.5 Conclusão e Recomendações</h3>
+            <div class="card">
+                <p class="mb-4">
+                    O investimento em uma estrutura completa para UBS Porte 1, incluindo
+                    tecnologia, sistemas integrados e consultoria especializada,
+                    representa um compromisso com a qualidade da atenção à saúde e com a
+                    gestão eficiente dos recursos públicos. Embora o custo mensal estimado
+                    de R$ 90.200,00 possa parecer elevado em comparação com o repasse
+                    federal, a análise de custo-efetividade demonstra claramente que este
+                    investimento resulta em economias significativas a médio e longo prazo
+                    para todo o sistema de saúde.
+                </p>
+
+                <div class="bg-blue-50 p-5 rounded-lg shadow-sm mb-6">
+                    <h4 class="font-semibold text-blue-800 mb-3">
+                        Recomendações para Implementação
+                    </h4>
+                    <ol class="list-decimal pl-5 space-y-2">
+                        <li>
+                            Iniciar com um diagnóstico detalhado da situação atual da unidade,
+                            identificando as principais lacunas e necessidades.
+                        </li>
+                        <li>
+                            Implementar as tecnologias de forma gradual, priorizando aquelas
+                            com maior impacto imediato na qualidade do atendimento.
+                        </li>
+                        <li>
+                            Investir na capacitação contínua da equipe para garantir o uso
+                            eficiente das novas tecnologias e processos.
+                        </li>
+                        <li>
+                            Estabelecer indicadores claros de monitoramento para avaliar o
+                            retorno sobre o investimento.
+                        </li>
+                        <li>
+                            Buscar parcerias com instituições de ensino e pesquisa para
+                            aprimoramento contínuo dos processos.
+                        </li>
+                        <li>
+                            Considerar a possibilidade de consórcios intermunicipais para
+                            diluir custos de sistemas e consultorias especializadas.
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                    <p class="text-green-800 font-medium">
+                        "Investir em atenção primária não é apenas uma questão de saúde
+                        pública, mas uma decisão econômica inteligente. Cada real aplicado
+                        em prevenção e gestão eficiente economiza vários no tratamento de
+                        doenças evitáveis."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-10 pt-6 border-t text-center text-gray-600 text-sm">
+            <p>
+                Documento elaborado com base em dados e recomendações do Ministério da
+                Saúde, estudos de custo-efetividade em saúde e melhores práticas de
+                gestão na atenção primária.
+            </p>
+            <p class="mt-2">© 2025 - Todos os direitos reservados</p>
+        </footer>
+    </div>
+</body>
+</html>
