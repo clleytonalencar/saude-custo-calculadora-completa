@@ -5,103 +5,32 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { PrinterIcon, DownloadIcon, FileSpreadsheet } from "lucide-react";
 import * as XLSX from 'xlsx';
-
-interface Professional {
-  id: string;
-  type: string;
-  quantity: number;
-  salary: number;
-  workHours: number;
-}
-
-interface Training {
-  id: string;
-  name: string;
-  description: string;
-  cost: number;
-  participants: number;
-  hours: number;
-}
-
-interface SystemConsulting {
-  id: string;
-  name: string;
-  description: string;
-  cost: number;
-  category: 'system' | 'consulting';
-}
-
-interface FacilityCosts {
-  infrastructure: {
-    rent: number;
-    utilities: number;
-    maintenance: number;
-  };
-  equipment: {
-    medical: number;
-    office: number;
-    technology: number;
-  };
-  operational: {
-    supplies: number;
-    insurance: number;
-    other: number;
-  };
-}
+import { useCostContext } from '@/context/CostContext';
 
 interface ReportModalProps {
   isOpen: boolean;
   onClose: () => void;
-  professionals: Professional[];
-  trainings: Training[];
-  systemsConsulting: SystemConsulting[];
-  facilityCosts: FacilityCosts;
 }
 
-const ReportModal = ({ isOpen, onClose, professionals, trainings, systemsConsulting, facilityCosts }: ReportModalProps) => {
-  const calculateProfessionalsCost = () => {
-    return professionals.reduce((total, prof) => total + (prof.quantity * prof.salary), 0);
-  };
-
-  const calculateTrainingsCost = () => {
-    return trainings.reduce((total, training) => total + (training.cost * training.hours), 0);
-  };
-
-  const calculateSystemsCost = () => {
-    return systemsConsulting
-      .filter(item => item.category === 'system')
-      .reduce((total, item) => total + item.cost, 0);
-  };
-
-  const calculateConsultingCost = () => {
-    return systemsConsulting
-      .filter(item => item.category === 'consulting')
-      .reduce((total, item) => total + item.cost, 0);
-  };
-
-  const calculateSystemsConsultingCost = () => {
-    return calculateSystemsCost() + calculateConsultingCost();
-  };
-
-  const calculateInfrastructureCost = () => {
-    return Object.values(facilityCosts.infrastructure).reduce((a, b) => a + b, 0);
-  };
-
-  const calculateEquipmentCost = () => {
-    return Object.values(facilityCosts.equipment).reduce((a, b) => a + b, 0);
-  };
-
-  const calculateOperationalCost = () => {
-    return Object.values(facilityCosts.operational).reduce((a, b) => a + b, 0);
-  };
-
-  const calculateFacilityCost = () => {
-    return calculateInfrastructureCost() + calculateEquipmentCost() + calculateOperationalCost();
-  };
-
-  const calculateTotalCost = () => {
-    return calculateProfessionalsCost() + calculateTrainingsCost() + calculateSystemsConsultingCost() + calculateFacilityCost();
-  };
+const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
+  const {
+    professionals,
+    trainings,
+    systemsConsulting,
+    facilityCosts,
+    calculateProfessionalsCost,
+    calculateTrainingsCost,
+    calculateSystemsCost,
+    calculateConsultingCost,
+    calculateSystemsConsultingCost,
+    calculateInfrastructureCost,
+    calculateEquipmentCost,
+    calculateOperationalCost,
+    calculateFacilityCost,
+    calculateTotalCost,
+    workPlanTotalMensal,
+    workPlanTotalAnual
+  } = useCostContext();
 
   useEffect(() => {
     if (isOpen) {

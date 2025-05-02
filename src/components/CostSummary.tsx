@@ -1,97 +1,27 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
 import { FileIcon, UsersIcon, BookOpen, MonitorIcon, Briefcase } from "lucide-react";
-
-interface Professional {
-  id: string;
-  type: string;
-  quantity: number;
-  salary: number;
-  workHours: number;
-}
-
-interface Training {
-  id: string;
-  name: string;
-  description: string;
-  cost: number;
-  participants: number;
-  hours: number;
-}
-
-interface SystemConsulting {
-  id: string;
-  name: string;
-  description: string;
-  cost: number;
-  category: 'system' | 'consulting';
-}
-
-interface FacilityCosts {
-  infrastructure: {
-    rent: number;
-    utilities: number;
-    maintenance: number;
-  };
-  equipment: {
-    medical: number;
-    office: number;
-    technology: number;
-  };
-  operational: {
-    supplies: number;
-    insurance: number;
-    other: number;
-  };
-}
+import { useCostContext } from '@/context/CostContext';
 
 interface CostSummaryProps {
-  professionals: Professional[];
-  trainings: Training[];
-  systemsConsulting: SystemConsulting[];
-  facilityCosts: FacilityCosts;
   onGenerateReport: () => void;
 }
 
-const CostSummary = ({ professionals, trainings, systemsConsulting, facilityCosts, onGenerateReport }: CostSummaryProps) => {
-  const calculateProfessionalsCost = () => {
-    return professionals.reduce((total, prof) => total + (prof.quantity * prof.salary), 0);
-  };
-
-  const calculateTrainingsCost = () => {
-    return trainings.reduce((total, training) => total + (training.cost * training.participants), 0);
-  };
-
-  const calculateSystemsCost = () => {
-    return systemsConsulting
-      .filter(item => item.category === 'system')
-      .reduce((total, item) => total + item.cost, 0);
-  };
-
-  const calculateConsultingCost = () => {
-    return systemsConsulting
-      .filter(item => item.category === 'consulting')
-      .reduce((total, item) => total + item.cost, 0);
-  };
-
-  const calculateSystemsConsultingCost = () => {
-    return calculateSystemsCost() + calculateConsultingCost();
-  };
-
-  const calculateFacilityCost = () => {
-    const infrastructureTotal = Object.values(facilityCosts.infrastructure).reduce((a, b) => a + b, 0);
-    const equipmentTotal = Object.values(facilityCosts.equipment).reduce((a, b) => a + b, 0);
-    const operationalTotal = Object.values(facilityCosts.operational).reduce((a, b) => a + b, 0);
-    
-    return infrastructureTotal + equipmentTotal + operationalTotal;
-  };
-
-  const calculateTotalCost = () => {
-    return calculateProfessionalsCost() + calculateTrainingsCost() + calculateSystemsConsultingCost() + calculateFacilityCost();
-  };
+const CostSummary = ({ onGenerateReport }: CostSummaryProps) => {
+  const {
+    professionals,
+    trainings,
+    systemsConsulting,
+    calculateProfessionalsCost,
+    calculateTrainingsCost,
+    calculateSystemsCost,
+    calculateConsultingCost,
+    calculateSystemsConsultingCost,
+    calculateFacilityCost,
+    calculateTotalCost
+  } = useCostContext();
 
   const chartData = [
     { name: 'Profissionais', value: calculateProfessionalsCost() },
