@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import { Button } from "@/components/ui/button";
@@ -110,6 +111,12 @@ const WorkPlan = () => {
     localStorage.setItem('workPlanConfig', JSON.stringify(workPlanConfig));
   }, [workPlanConfig]);
 
+  // Função auxiliar para encontrar um item por nome na coleção
+  const findItemCostByName = (collection: Array<{name: string, cost: number}>, name: string): number => {
+    const item = collection.find(item => item.name.toLowerCase().includes(name.toLowerCase()));
+    return item ? item.cost : 0;
+  };
+
   // Converter dados da calculadora para o formato do plano de trabalho
   useEffect(() => {
     // Garantir que temos o valor total atualizado antes de continuar
@@ -148,14 +155,18 @@ const WorkPlan = () => {
       }));
 
     // Instalações e Operação
+    // Agora tratando corretamente os arrays de FacilityItem
     const facilityItems = [
-      { nome: "Infraestrutura (Aluguel, Utilidades)", qtd: 1, valor: facilityCosts.infrastructure.rent + facilityCosts.infrastructure.utilities },
-      { nome: "Manutenção", qtd: 1, valor: facilityCosts.infrastructure.maintenance },
-      { nome: "Equipamentos Médicos", qtd: 1, valor: facilityCosts.equipment.medical },
-      { nome: "Equipamentos de Escritório", qtd: 1, valor: facilityCosts.equipment.office },
-      { nome: "Suprimentos", qtd: 1, valor: facilityCosts.operational.supplies },
-      { nome: "Seguros", qtd: 1, valor: facilityCosts.operational.insurance },
-      { nome: "Outros Custos Operacionais", qtd: 1, valor: facilityCosts.operational.other }
+      { nome: "Infraestrutura (Aluguel, Utilidades)", qtd: 1, valor: 
+        findItemCostByName(facilityCosts.infrastructure, 'Aluguel') + 
+        findItemCostByName(facilityCosts.infrastructure, 'Utilidades') 
+      },
+      { nome: "Manutenção", qtd: 1, valor: findItemCostByName(facilityCosts.infrastructure, 'Manutenção') },
+      { nome: "Equipamentos Médicos", qtd: 1, valor: findItemCostByName(facilityCosts.equipment, 'Equipamentos Médicos') },
+      { nome: "Equipamentos de Escritório", qtd: 1, valor: findItemCostByName(facilityCosts.equipment, 'Material de Escritório') },
+      { nome: "Suprimentos", qtd: 1, valor: findItemCostByName(facilityCosts.operational, 'Suprimentos') },
+      { nome: "Seguros", qtd: 1, valor: findItemCostByName(facilityCosts.operational, 'Seguros') },
+      { nome: "Outros Custos Operacionais", qtd: 1, valor: findItemCostByName(facilityCosts.operational, 'Outros Custos') }
     ];
 
     setBudgetData({
