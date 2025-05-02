@@ -26,22 +26,17 @@ interface SystemConsulting {
   category: 'system' | 'consulting';
 }
 
-interface FacilityCosts {
-  infrastructure: {
-    rent: number;
-    utilities: number;
-    maintenance: number;
-  };
-  equipment: {
-    medical: number;
-    office: number;
-    technology: number;
-  };
-  operational: {
-    supplies: number;
-    insurance: number;
-    other: number;
-  };
+export interface FacilityItem {
+  id: string;
+  name: string;
+  description: string;
+  cost: number;
+}
+
+export interface FacilityCosts {
+  infrastructure: FacilityItem[];
+  equipment: FacilityItem[];
+  operational: FacilityItem[];
 }
 
 // Dados iniciais
@@ -96,21 +91,21 @@ const initialSystemsConsulting: SystemConsulting[] = [
 ];
 
 const initialFacilityCosts: FacilityCosts = {
-  infrastructure: {
-    rent: 15000,
-    utilities: 8000,
-    maintenance: 5000,
-  },
-  equipment: {
-    medical: 25000,
-    office: 12000,
-    technology: 0, // Valor zerado pois os sistemas estão em categoria própria
-  },
-  operational: {
-    supplies: 20000,
-    insurance: 5000,
-    other: 150,
-  },
+  infrastructure: [
+    { id: "infra-1", name: "Aluguel", description: "Custo mensal de aluguel", cost: 15000 },
+    { id: "infra-2", name: "Utilidades", description: "Custo de água, energia e internet", cost: 8000 },
+    { id: "infra-3", name: "Manutenção", description: "Custo de manutenção predial", cost: 5000 },
+  ],
+  equipment: [
+    { id: "equip-1", name: "Equipamentos médicos", description: "Custo de equipamentos médicos", cost: 25000 },
+    { id: "equip-2", name: "Equipamentos de escritório", description: "Custo de equipamentos de escritório", cost: 12000 },
+    { id: "equip-3", name: "Tecnologia", description: "Custo de equipamentos tecnológicos", cost: 0 },
+  ],
+  operational: [
+    { id: "oper-1", name: "Suprimentos", description: "Custo de suprimentos operacionais", cost: 20000 },
+    { id: "oper-2", name: "Seguro", description: "Custo de seguro", cost: 5000 },
+    { id: "oper-3", name: "Outros", description: "Outros custos operacionais", cost: 150 },
+  ],
 };
 
 // Funções de cálculo
@@ -135,15 +130,15 @@ const calculateConsultingCost = (systemsConsulting: SystemConsulting[]) => {
 };
 
 const calculateInfrastructureCost = (facilityCosts: FacilityCosts) => {
-  return Object.values(facilityCosts.infrastructure).reduce((a, b) => a + b, 0);
+  return facilityCosts.infrastructure.reduce((total, item) => total + item.cost, 0);
 };
 
 const calculateEquipmentCost = (facilityCosts: FacilityCosts) => {
-  return Object.values(facilityCosts.equipment).reduce((a, b) => a + b, 0);
+  return facilityCosts.equipment.reduce((total, item) => total + item.cost, 0);
 };
 
 const calculateOperationalCost = (facilityCosts: FacilityCosts) => {
-  return Object.values(facilityCosts.operational).reduce((a, b) => a + b, 0);
+  return facilityCosts.operational.reduce((total, item) => total + item.cost, 0);
 };
 
 const calculateFacilityCost = (facilityCosts: FacilityCosts) => {
@@ -201,7 +196,131 @@ export const CostProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   // Verificar se existem dados salvos no localStorage
   const getSavedData = <T,>(key: string, initialData: T): T => {
     const saved = localStorage.getItem(key);
-    return saved ? JSON.parse(saved) : initialData;
+    if (!saved) return initialData;
+    
+    try {
+      const parsedData = JSON.parse(saved);
+      
+      // Migração de dados antigos para o novo formato (específico para facilityCosts)
+      if (key === 'facilityCosts') {
+        const oldData = parsedData as any;
+        
+        // Verificação mais segura para o formato antigo
+        if (
+          oldData && 
+          typeof oldData === 'object' && 
+          oldData.infrastructure && 
+          !Array.isArray(oldData.infrastructure)
+        ) {
+          // Valores padrão para garantir que não ocorram erros
+          const newFormat: FacilityCosts = {
+            infrastructure: [
+              { 
+                id: "infra-1", 
+                name: "Aluguel", 
+                description: "Custo mensal de aluguel", 
+                cost: oldData.infrastructure && typeof oldData.infrastructure.rent === 'number' 
+                  ? oldData.infrastructure.rent 
+                  : 0 
+              },
+              { 
+                id: "infra-2", 
+                name: "Utilidades", 
+                description: "Custo de água, energia e internet", 
+                cost: oldData.infrastructure && typeof oldData.infrastructure.utilities === 'number' 
+                  ? oldData.infrastructure.utilities 
+                  : 0 
+              },
+              { 
+                id: "infra-3", 
+                name: "Manutenção", 
+                description: "Custo de manutenção predial", 
+                cost: oldData.infrastructure && typeof oldData.infrastructure.maintenance === 'number' 
+                  ? oldData.infrastructure.maintenance 
+                  : 0 
+              }
+            ],
+            equipment: [
+              { 
+                id: "equip-1", 
+                name: "Equipamentos médicos", 
+                description: "Custo de equipamentos médicos", 
+                cost: oldData.equipment && typeof oldData.equipment.medical === 'number' 
+                  ? oldData.equipment.medical 
+                  : 0 
+              },
+              { 
+                id: "equip-2", 
+                name: "Equipamentos de escritório", 
+                description: "Custo de equipamentos de escritório", 
+                cost: oldData.equipment && typeof oldData.equipment.office === 'number' 
+                  ? oldData.equipment.office 
+                  : 0 
+              },
+              { 
+                id: "equip-3", 
+                name: "Tecnologia", 
+                description: "Custo de equipamentos tecnológicos", 
+                cost: oldData.equipment && typeof oldData.equipment.technology === 'number' 
+                  ? oldData.equipment.technology 
+                  : 0 
+              }
+            ],
+            operational: [
+              { 
+                id: "oper-1", 
+                name: "Suprimentos", 
+                description: "Custo de suprimentos operacionais", 
+                cost: oldData.operational && typeof oldData.operational.supplies === 'number' 
+                  ? oldData.operational.supplies 
+                  : 0 
+              },
+              { 
+                id: "oper-2", 
+                name: "Seguro", 
+                description: "Custo de seguro", 
+                cost: oldData.operational && typeof oldData.operational.insurance === 'number' 
+                  ? oldData.operational.insurance 
+                  : 0 
+              },
+              { 
+                id: "oper-3", 
+                name: "Outros", 
+                description: "Outros custos operacionais", 
+                cost: oldData.operational && typeof oldData.operational.other === 'number' 
+                  ? oldData.operational.other 
+                  : 0 
+              }
+            ]
+          };
+          
+          // Atualiza o localStorage com o novo formato
+          localStorage.setItem(key, JSON.stringify(newFormat));
+          return newFormat as unknown as T;
+        }
+        
+        // Verificar se os dados estão no formato correto esperado
+        if (
+          !Array.isArray(oldData.infrastructure) || 
+          !Array.isArray(oldData.equipment) || 
+          !Array.isArray(oldData.operational)
+        ) {
+          console.error('Formato inválido de facilityCosts no localStorage, restaurando padrões');
+          localStorage.setItem(key, JSON.stringify(initialData));
+          return initialData;
+        }
+        
+        // Caso já esteja no formato correto
+        return parsedData;
+      }
+      
+      return parsedData;
+    } catch (error) {
+      console.error(`Erro ao carregar dados do localStorage (${key}):`, error);
+      // Em caso de erro, removemos os dados corrompidos e usamos os iniciais
+      localStorage.removeItem(key);
+      return initialData;
+    }
   };
 
   const [professionals, setProfessionals] = useState<Professional[]>(

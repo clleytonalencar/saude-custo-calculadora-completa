@@ -115,7 +115,6 @@ const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
   }, [isOpen]);
 
   const handlePrint = () => {
-    // Criar uma janela de impressão separada para maior controle
     const printWindow = window.open('', '_blank');
     
     if (!printWindow) {
@@ -123,7 +122,6 @@ const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
       return;
     }
     
-    // Estilos específicos para a janela de impressão
     const printContent = `
       <!DOCTYPE html>
       <html>
@@ -445,18 +443,12 @@ const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Aluguel/Imóvel</td>
-              <td class="text-right">R$ ${facilityCosts.infrastructure.rent.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-            </tr>
-            <tr>
-              <td>Utilidades (água, luz, etc.)</td>
-              <td class="text-right">R$ ${facilityCosts.infrastructure.utilities.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-            </tr>
-            <tr>
-              <td>Manutenção</td>
-              <td class="text-right">R$ ${facilityCosts.infrastructure.maintenance.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-            </tr>
+            ${facilityCosts.infrastructure.map(item => `
+              <tr>
+                <td>${item.name}</td>
+                <td class="text-right">R$ ${item.cost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
+              </tr>
+            `).join('')}
             <tr class="subtotal-row">
               <td>Subtotal Infraestrutura</td>
               <td class="text-right">R$ ${calculateInfrastructureCost().toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
@@ -473,18 +465,12 @@ const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Equipamentos Médicos</td>
-              <td class="text-right">R$ ${facilityCosts.equipment.medical.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-            </tr>
-            <tr>
-              <td>Material de Escritório</td>
-              <td class="text-right">R$ ${facilityCosts.equipment.office.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-            </tr>
-            <tr>
-              <td>Tecnologia</td>
-              <td class="text-right">R$ ${facilityCosts.equipment.technology.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-            </tr>
+            ${facilityCosts.equipment.map(item => `
+              <tr>
+                <td>${item.name}</td>
+                <td class="text-right">R$ ${item.cost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
+              </tr>
+            `).join('')}
             <tr class="subtotal-row">
               <td>Subtotal Equipamentos</td>
               <td class="text-right">R$ ${calculateEquipmentCost().toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
@@ -501,18 +487,12 @@ const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Suprimentos</td>
-              <td class="text-right">R$ ${facilityCosts.operational.supplies.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-            </tr>
-            <tr>
-              <td>Seguros</td>
-              <td class="text-right">R$ ${facilityCosts.operational.insurance.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-            </tr>
-            <tr>
-              <td>Outros Custos</td>
-              <td class="text-right">R$ ${facilityCosts.operational.other.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-            </tr>
+            ${facilityCosts.operational.map(item => `
+              <tr>
+                <td>${item.name}</td>
+                <td class="text-right">R$ ${item.cost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
+              </tr>
+            `).join('')}
             <tr class="subtotal-row">
               <td>Subtotal Operacionais</td>
               <td class="text-right">R$ ${calculateOperationalCost().toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
@@ -540,13 +520,9 @@ const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
     printWindow.document.write(printContent);
     printWindow.document.close();
     
-    // Espera o carregamento dos estilos e conteúdo antes de imprimir
     printWindow.onload = function() {
       printWindow.focus();
       printWindow.print();
-      
-      // Para não fechar a janela após imprimir, comente a linha abaixo
-      // printWindow.onafterprint = () => printWindow.close();
     };
   };
 
@@ -584,26 +560,26 @@ const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
         "Valor": c.cost
       }));
     
-    const infrastructureData = [
-      { "Item": "Aluguel/Imóvel", "Valor": facilityCosts.infrastructure.rent },
-      { "Item": "Utilidades (água, luz, etc.)", "Valor": facilityCosts.infrastructure.utilities },
-      { "Item": "Manutenção", "Valor": facilityCosts.infrastructure.maintenance },
-      { "Item": "Subtotal Infraestrutura", "Valor": calculateInfrastructureCost() }
-    ];
+    const infrastructureData = facilityCosts.infrastructure.map(item => ({
+      "Item": item.name,
+      "Descrição": item.description,
+      "Valor": item.cost
+    }));
+    infrastructureData.push({ "Item": "Subtotal Infraestrutura", "Descrição": "", "Valor": calculateInfrastructureCost() });
     
-    const equipmentData = [
-      { "Item": "Equipamentos Médicos", "Valor": facilityCosts.equipment.medical },
-      { "Item": "Material de Escritório", "Valor": facilityCosts.equipment.office },
-      { "Item": "Tecnologia", "Valor": facilityCosts.equipment.technology },
-      { "Item": "Subtotal Equipamentos", "Valor": calculateEquipmentCost() }
-    ];
+    const equipmentData = facilityCosts.equipment.map(item => ({
+      "Item": item.name,
+      "Descrição": item.description,
+      "Valor": item.cost
+    }));
+    equipmentData.push({ "Item": "Subtotal Equipamentos", "Descrição": "", "Valor": calculateEquipmentCost() });
     
-    const operationalData = [
-      { "Item": "Suprimentos", "Valor": facilityCosts.operational.supplies },
-      { "Item": "Seguros", "Valor": facilityCosts.operational.insurance },
-      { "Item": "Outros Custos", "Valor": facilityCosts.operational.other },
-      { "Item": "Subtotal Operacionais", "Valor": calculateOperationalCost() }
-    ];
+    const operationalData = facilityCosts.operational.map(item => ({
+      "Item": item.name,
+      "Descrição": item.description,
+      "Valor": item.cost
+    }));
+    operationalData.push({ "Item": "Subtotal Operacionais", "Descrição": "", "Valor": calculateOperationalCost() });
     
     const summaryData = [
       { "Categoria": "Profissionais", "Valor": calculateProfessionalsCost() },
@@ -855,21 +831,19 @@ const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td className="border p-2">Aluguel/Imóvel</td>
-                        <td className="border p-2 text-right">R$ {facilityCosts.infrastructure.rent.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-                      </tr>
-                      <tr>
-                        <td className="border p-2">Utilidades (água, luz, etc.)</td>
-                        <td className="border p-2 text-right">R$ {facilityCosts.infrastructure.utilities.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-                      </tr>
-                      <tr>
-                        <td className="border p-2">Manutenção</td>
-                        <td className="border p-2 text-right">R$ {facilityCosts.infrastructure.maintenance.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-                      </tr>
+                      {Array.isArray(facilityCosts.infrastructure) && facilityCosts.infrastructure.map((item) => (
+                        <tr key={item.id}>
+                          <td className="border p-2">{item.name}</td>
+                          <td className="border p-2 text-right">
+                            R$ {item.cost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                          </td>
+                        </tr>
+                      ))}
                       <tr className="bg-amber-50">
                         <td className="border p-2 font-bold">Subtotal Infraestrutura</td>
-                        <td className="border p-2 text-right font-bold">R$ {calculateInfrastructureCost().toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
+                        <td className="border p-2 text-right font-bold">
+                          R$ {calculateInfrastructureCost().toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -885,21 +859,19 @@ const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td className="border p-2">Equipamentos Médicos</td>
-                        <td className="border p-2 text-right">R$ {facilityCosts.equipment.medical.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-                      </tr>
-                      <tr>
-                        <td className="border p-2">Material de Escritório</td>
-                        <td className="border p-2 text-right">R$ {facilityCosts.equipment.office.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-                      </tr>
-                      <tr>
-                        <td className="border p-2">Tecnologia</td>
-                        <td className="border p-2 text-right">R$ {facilityCosts.equipment.technology.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-                      </tr>
+                      {Array.isArray(facilityCosts.equipment) && facilityCosts.equipment.map((item) => (
+                        <tr key={item.id}>
+                          <td className="border p-2">{item.name}</td>
+                          <td className="border p-2 text-right">
+                            R$ {item.cost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                          </td>
+                        </tr>
+                      ))}
                       <tr className="bg-amber-50">
                         <td className="border p-2 font-bold">Subtotal Equipamentos</td>
-                        <td className="border p-2 text-right font-bold">R$ {calculateEquipmentCost().toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
+                        <td className="border p-2 text-right font-bold">
+                          R$ {calculateEquipmentCost().toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -915,21 +887,19 @@ const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td className="border p-2">Suprimentos</td>
-                        <td className="border p-2 text-right">R$ {facilityCosts.operational.supplies.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-                      </tr>
-                      <tr>
-                        <td className="border p-2">Seguros</td>
-                        <td className="border p-2 text-right">R$ {facilityCosts.operational.insurance.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-                      </tr>
-                      <tr>
-                        <td className="border p-2">Outros Custos</td>
-                        <td className="border p-2 text-right">R$ {facilityCosts.operational.other.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
-                      </tr>
+                      {Array.isArray(facilityCosts.operational) && facilityCosts.operational.map((item) => (
+                        <tr key={item.id}>
+                          <td className="border p-2">{item.name}</td>
+                          <td className="border p-2 text-right">
+                            R$ {item.cost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                          </td>
+                        </tr>
+                      ))}
                       <tr className="bg-amber-50">
                         <td className="border p-2 font-bold">Subtotal Operacionais</td>
-                        <td className="border p-2 text-right font-bold">R$ {calculateOperationalCost().toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
+                        <td className="border p-2 text-right font-bold">
+                          R$ {calculateOperationalCost().toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                        </td>
                       </tr>
                     </tbody>
                   </table>
