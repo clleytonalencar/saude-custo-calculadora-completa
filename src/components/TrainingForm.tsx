@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -48,7 +47,7 @@ const TrainingForm = ({ trainings, setTrainings }: TrainingFormProps) => {
 
   const calculateTotalCost = () => {
     return trainings.reduce((total, training) => {
-      return total + (training.cost * training.participants);
+      return total + (training.cost * training.hours);
     }, 0);
   };
 
@@ -162,7 +161,7 @@ const TrainingForm = ({ trainings, setTrainings }: TrainingFormProps) => {
                 </div>
                 
                 <div className="text-right text-sm font-medium text-green-600">
-                  Subtotal: R$ {(training.cost * training.participants).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                  Subtotal: R$ {(training.cost * training.hours).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </div>
               </div>
             ))}

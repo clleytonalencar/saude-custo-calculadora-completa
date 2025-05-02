@@ -64,7 +64,7 @@ const ReportModal = ({ isOpen, onClose, professionals, trainings, systemsConsult
   };
 
   const calculateTrainingsCost = () => {
-    return trainings.reduce((total, training) => total + (training.cost * training.participants), 0);
+    return trainings.reduce((total, training) => total + (training.cost * training.hours), 0);
   };
 
   const calculateSystemsCost = () => {
@@ -415,8 +415,8 @@ const ReportModal = ({ isOpen, onClose, professionals, trainings, systemsConsult
                     <p class="subtitle">${training.description || "Sem descrição"}</p>
                   </div>
                   <div>
-                    <div class="subtitle">Custo total</div>
-                    <div style="font-weight: bold;">R$ ${(training.cost * training.participants).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</div>
+                    <div class="text-sm text-gray-500">Custo total</div>
+                    <div class="font-bold">R$ ${(training.cost * training.hours).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</div>
                   </div>
                 </div>
                 <div class="training-details">
@@ -636,7 +636,7 @@ const ReportModal = ({ isOpen, onClose, professionals, trainings, systemsConsult
       "Custo por Participante": t.cost,
       "Participantes": t.participants,
       "Horas": t.hours,
-      "Custo Total": t.cost * t.participants
+      "Custo Total": t.cost * t.hours
     }));
     
     const systemsData = systemsConsulting
@@ -802,9 +802,9 @@ const ReportModal = ({ isOpen, onClose, professionals, trainings, systemsConsult
                           <h3 className="font-bold">{training.name || "Treinamento não especificado"}</h3>
                           <p className="text-gray-600 text-sm mt-1">{training.description || "Sem descrição"}</p>
                         </div>
-                        <div className="text-right">
+                        <div>
                           <div className="text-sm text-gray-500">Custo total</div>
-                          <div className="font-bold">R$ {(training.cost * training.participants).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</div>
+                          <div className="font-bold">R$ {(training.cost * training.hours).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</div>
                         </div>
                       </div>
                       <div className="mt-3 grid grid-cols-3 gap-2 text-sm">
